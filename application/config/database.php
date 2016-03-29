@@ -48,11 +48,11 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = '213.19.161.138';
-$db['default']['username'] = 'wwwntech_hr';
-$db['default']['password'] = '38~Q8E~4{w[n';
-$db['default']['database'] = 'wwwntech_elwatannews';
-$db['default']['dbdriver'] = 'mysql';
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'root';
+$db['default']['password'] = 'admin';
+$db['default']['database'] = '';
+$db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;

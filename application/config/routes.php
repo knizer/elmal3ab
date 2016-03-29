@@ -38,10 +38,7 @@
 |
 */
 
-$route['default_controller'] = 'home';
-$route['login'] = 'home/login';
-$route['logout'] = 'home/logout';
-$route['images/(:num)'] = "images";
+$route['default_controller'] = "home";
 $route['404_override'] = '';
 
 

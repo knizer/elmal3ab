@@ -37,27 +37,13 @@ define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 // Important URLS
-define('ROOT', 'http://dev.nteches.com/elwatannews_admin/');
+define('ROOT', 'http://localhost/');
 define('ASSETS', ROOT . 'assets/');
+define('CSS', ASSETS . 'css/');
+define('JS', ASSETS . 'js/');
+define('IMG', ASSETS . 'img/');
+define('FONTS', ASSETS . 'fonts/');
 define('UPLOADS', ROOT . 'uploads/');
-define('IMG_ARCHIVE', UPLOADS . 'image_archive/');
-define('VIDEO_UPLOAD', UPLOADS . 'image_archive/');
-define('INTERACTIVE_FILES', UPLOADS . 'interactive_files/');
-define('USER_PHOTOS', UPLOADS . 'user_photos/');
-define('VIDEOS', UPLOADS . 'videos/');
-
-// Important Uploads server paths
-define('UPLOADS_PATH', $_SERVER["DOCUMENT_ROOT"] . '/elwatannews_admin/uploads/');
-define('IMG_ARCHIVE_PATH', UPLOADS_PATH . 'image_archive/');
-define('IMG_ORIGINAL_PATH', IMG_ARCHIVE_PATH . 'original/');
-define('IMG_LARGE_PATH', IMG_ARCHIVE_PATH . 'large/');
-define('IMG_MEDIUM_PATH', IMG_ARCHIVE_PATH . 'medium/');
-define('IMG_PORTRAIT_PATH', IMG_ARCHIVE_PATH . 'portrait/');
-define('IMG_SMALL_PATH', IMG_ARCHIVE_PATH . 'small/');
-define('IMG_CACHE_PATH', IMG_ARCHIVE_PATH . 'cache/');
-define('INTERACTIVE_FILES_PATH', UPLOADS_PATH . 'interactive_files/');
-define('USER_PHOTOS_PATH', UPLOADS_PATH . 'user_photos/');
-define('VIDEOS_PATH', UPLOADS_PATH . 'videos/');
 
 
 /* End of file constants.php */
