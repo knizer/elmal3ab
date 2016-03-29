@@ -37,7 +37,7 @@ define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 // Important URLS
-define('ROOT', 'http://localhost/');
+define('ROOT', 'http://localhost/elmal3ab/');
 define('ASSETS', ROOT . 'assets/');
 define('CSS', ASSETS . 'css/');
 define('JS', ASSETS . 'js/');

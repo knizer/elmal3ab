@@ -12,7 +12,8 @@ class Home extends MX_Controller {
     public function index()
     {
 		$data = array();
-        echo "HOME";
+        $data['title'] = "الملعب";
+        $this->load->view('home_page_view', $data);
     }
 
 }
