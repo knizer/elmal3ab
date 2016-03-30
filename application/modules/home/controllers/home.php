@@ -12,7 +12,7 @@ class Home extends CI_Controller {
     {
 		$data = array();
         $data['title'] = "الملعب";
-        
+
         $this->load->view('home_page_view', $data);
     }
 
