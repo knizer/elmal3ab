@@ -1,11 +1,11 @@
-<?php $this->load->view("header"); ?> 
+<?php $this->load->view("header"); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <title>Drawing Tests</title>
         <link rel="stylesheet" type="text/css" href="<?= ASSETS; ?>fieldchooser/css/style.css" />
- 
+
         <script src="<?= ASSETS; ?>fieldchooser/fieldChooser.js"></script>
         <script>
             $(document).ready(function () {
@@ -17,7 +17,7 @@
     </head>
     <body>
         <div class="col-md-4">
-            
+
             <div class="widget-area">
                 <div class="inline-form">
                     <label class="c-label">ابحث هنا</label>
@@ -32,7 +32,7 @@
                     <div id="sourceFields">
                         <?php
                         foreach ($albums as $album) {
-                        
+
                            echo'<div id="from_' . $album->id . '"><p class="p-class">' . substr($album->title, 0, 200) . '</p> <div><p class="p-details">' . @$album->published_at . ' -';
                             if ($album->published == 1) {
                                 echo "تم نشره" . "</p>";
@@ -43,26 +43,26 @@
                             else
                             echo '<a  data-toggle="modal" style="float:right"  href="#myModal_bulk" onclick="ViewArticle(' . $album->id . ',' . $album->published . ',\'' . $album->created_at . '\',\'' . str_replace('"', '', trim($album->title)) . '\')">عرض</a></div></div>';
                         }
-                        ?>	
+                        ?>
                     </div>
                     <div id="destinationFields">
                         <?php
                         foreach ($list_data as $album) {
-            
+
                              echo'<div id="to_' . $album->album_id . '"><p class="p-class">' . substr($album->title, 0, 200) . '</p><div><p class="p-details">' . @$album->created_at . ' - ';
                             if ($album->published == 1) {
                                 echo "تم نشره" . "</p>";
                             } elseif ($album->published == 0)
                                 echo "جديد" . "</p>";
-                            echo '<a href="" style="float:right" onclick="deleteRecord(' . $album->id . ')"><div style="color: blue;  margin-right: 90%;margin-top: -6%;">حذف</div></a></div></div>';
+                            echo '</div></div>';
                         }
                         ?>
                     </div>
                     <div class="col-md-62">
-                        <div id="list_count"><?php echo "تحتوى" . count($list_data) . " من 12"; ?></div> 
+                        <div id="list_count"><?php echo "تحتوى" . count($list_data) . " من 12"; ?></div>
                     </div>
                     <div class="col-md-62" style="margin-top: 5px;">
-                      
+
                         <div id="footer_count"> عرض<?php echo $offset ?> لـ<?php echo $offset+5 ?> من إجمالى<?php echo $albums_count; ?> </div>
                         <div id="paging"> <?php echo $pagination; ?></div>
                     </div>
@@ -83,7 +83,7 @@
                         </h4>
                         <div style="clear: both;"></div>
                     </div>
-                    
+
                     <div class="modal-body">
                         <div class="bulk_newsletter"></div>
                     </div>
@@ -102,13 +102,13 @@
 
 </html>
 <script>
-   
+
 //--save changes button
     $("#save_changes").click(function () {
-        $.post('<?php echo site_url() ?>albums_featured/saveChanges', {list_det: $('#destinationFields').html()}, function (data) {
+        $.post('<?php echo ROOT ?>albums_featured/saveChanges', {list_det: $('#destinationFields').html()}, function (data) {
 
             if (data == 1)
-               window.location.href = "<?php echo site_url().'albums_featured' ?>";
+               window.location.href = "<?php echo ROOT.'albums_featured' ?>";
             else if (data == 2)
                 $('.res').html("لديك أخبار مكررة من فضلك قم بحذفها وأعد المحاولة!");
 
@@ -132,14 +132,14 @@
 
         $('#myModal_bulk').modal('toggle');
         //$('#myModal_bulk').modal('show');
-        $.post('<?php echo site_url(); ?>albums_featured/get_album', {album_id: id}, function (data) {
+        $.post('<?php echo ROOT; ?>albums_featured/get_album', {album_id: id}, function (data) {
 
 
             $('.bulk_newsletter').html(data);
             $('.add_list').html(' <input type="button" class="btn btn-success btn-font" value="إضافة للقائمة" onclick="add_list(' + id + ',\'' + title + '\',' + status + ',\'' + date + '\')" style="margin-left: 80%;margin-top: -3%;">')
 
         });//--end post
-    }//--end function     
+    }//--end function
 
     function add_list(id, title, status, date) {
         var html1 = '<div id="from_' + id + '" class="fc-field" tabindex="1">' + title + '<br><div style="font-size: 13px;">' + date + ' - ';
@@ -157,8 +157,8 @@
         $('#destinationFields').html(html);
         $('#myModal_bulk').modal('toggle');
     }
-    
+
     $( "#click_search" ).click(function() {
-        window.location.href = "<?php echo site_url() ?>albums_featured/search/"+$('.search_text').val();
+        window.location.href = "<?php echo ROOT ?>albums_featured/search/"+$('.search_text').val();
 });
 </script>
