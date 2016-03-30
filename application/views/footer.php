@@ -4,11 +4,11 @@
         <div class="row">
             <div class="col-md-12">
                 <ul class="primary-nav footer-nav">
-                    <li><a href="<?= base_url(); ?>">الرئيسية</a></li>
-                    <li><a href="<?= base_url(); ?>about_us/">من نحن</a></li>
-                    <li><a href="<?= base_url(); ?>stadiums/">ملاعب</a></li>
-                    <li><a href="<?= base_url(); ?>albums/">ألبومات صور</a></li>
-                    <li><a href="<?= base_url(); ?>contact_us/">اتصل بنا</a></li>
+                    <li><a href="<?= SITE_URL; ?>">الرئيسية</a></li>
+                    <li><a href="<?= SITE_URL; ?>about_us/">من نحن</a></li>
+                    <li><a href="<?= SITE_URL; ?>stadiums/">ملاعب</a></li>
+                    <li><a href="<?= SITE_URL; ?>albums/">ألبومات صور</a></li>
+                    <li><a href="<?= SITE_URL; ?>contact_us/">اتصل بنا</a></li>
                 </ul>
             </div>
         </div>

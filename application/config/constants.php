@@ -37,13 +37,13 @@ define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 // Important URLS
-define('ROOT', 'http://localhost/elmal3ab/');
-define('ASSETS', ROOT . 'assets/');
+define('SITE_URL', 'http://localhost/elmal3ab/');
+define('ASSETS', SITE_URL . 'assets/');
 define('CSS', ASSETS . 'css/');
 define('JS', ASSETS . 'js/');
 define('IMG', ASSETS . 'img/');
 define('FONTS', ASSETS . 'fonts/');
-define('UPLOADS', ROOT . 'uploads/');
+define('UPLOADS', SITE_URL . 'uploads/');
 
 
 /* End of file constants.php */

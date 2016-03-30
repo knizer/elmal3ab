@@ -40,16 +40,16 @@
                 <div class="header-nav">
                     <nav>
                         <ul class="primary-nav">
-                            <li><a href="<?= base_url(); ?>">الرئيسية</a></li>
-                            <li><a href="<?= base_url(); ?>about_us/">من نحن</a></li>
-                            <li><a href="<?= base_url(); ?>stadiums/">ملاعب</a></li>
-                            <li><a href="<?= base_url(); ?>albums/">ألبومات صور</a></li>
-                            <li><a href="<?= base_url(); ?>contact_us/">اتصل بنا</a></li>
+                            <li><a href="<?= SITE_URL; ?>">الرئيسية</a></li>
+                            <li><a href="<?= SITE_URL; ?>about_us/">من نحن</a></li>
+                            <li><a href="<?= SITE_URL; ?>stadiums/">ملاعب</a></li>
+                            <li><a href="<?= SITE_URL; ?>albums/">ألبومات صور</a></li>
+                            <li><a href="<?= SITE_URL; ?>contact_us/">اتصل بنا</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="logo">
-                    <a href="<?= base_url(); ?>">
+                    <a href="<?= SITE_URL; ?>">
                         <img src="<?= IMG; ?>logo.png" alt="elmal3ab logo">
                     </a>
                 </div>
