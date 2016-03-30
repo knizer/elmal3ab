@@ -1,53 +1,5 @@
 <?php $this->load->view('header'); ?>
 <section class="stadium">
-    <section class="navigation" id="navbar">
-        <div class="social-top">
-            <header style="padding: 0;">
-            <div class="social-icons">
-                <ul class="social-ul">
-                    <li class="social-ul-li"><a href="#search"><i class="fa fa-search search-custom"></i></a></li>
-                    <li class="social-ul-li"><a href="#"><i class="fa fa-whatsapp"></i></a></li>
-                    <li class="social-ul-li"><a href="#"><i class="fa fa-instagram"></i></a></li>
-                    <li class="social-ul-li"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li class="social-ul-li"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <div class="clear"></div>
-                </ul>
-                <div id="search">
-                    <form>
-                        <input type="search" value="" placeholder="اكتب كلمة البحث" />
-                        <button type="submit" class="btn btn-primary">ابحث</button>
-                    </form>
-                </div>
-            </div>
-            <div class="clear"></div>
-        </header>
-            <div class="clear"></div>
-        </div>
-        <header>
-            <div class="header-content">
-                <div class="header-nav">
-                    <nav>
-                        <ul class="primary-nav">
-                            <li><a href="#">الرئيسية</a></li>
-                            <li><a href="#">من نحن</a></li>
-                            <li><a href="#">ملاعب</a></li>
-                            <li><a href="#">ألبومات صور</a></li>
-                            <li><a href="#">اتصل بنا</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="logo">
-                    <a href="#">
-                        <img src="<?= IMG; ?>logo.png" alt="elmal3ab logo">
-                    </a>
-                </div>
-                <div class="navicon">
-                    <a class="nav-toggle" href="#"><span></span></a>
-                </div>
-            </div>
-            <div class="clear"></div>
-        </header>
-    </section>
     <div class="container" id="startchange">
         <div class="row">
             <div class="col-md-12 col-md-11-nofloat col-md-offset-1">
@@ -160,7 +112,7 @@
 <section class="intro section-padding best-stad-bg">
     <div class="container">
         <div id="circles-sup">
-            <p class="circles-title" style="color:#fff;margin-bottom: 60px;">أحدث الملاعب التي تمت اضافتها</p>
+            <p class="circles-title" style="color:#fff;margin-bottom: 60px;">أفضل ملاعب قام الزوار باللعب عليها</p>
         </div>
         <div id="stads">
             <div class="one-stad">
