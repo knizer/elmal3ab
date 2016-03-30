@@ -49,7 +49,7 @@
                     </nav>
                 </div>
                 <div class="logo">
-                    <a href="#">
+                    <a href="<?= base_url(); ?>">
                         <img src="<?= IMG; ?>logo.png" alt="elmal3ab logo">
                     </a>
                 </div>
