@@ -1,4 +1,4 @@
-<?php $this->load->view("header"); ?> 
+<?php $this->load->view("header"); ?>
 
 <div class="container">
     <div class="col-md-12">
@@ -98,31 +98,8 @@
                                 </select>
                             </div>
                         </div>
-
-                        <?php if ($this->session->userdata("add_coverage") == 1): ?>
-                            <div class="col-md-3">
-                                <input type="button" value="أضافة تغطية" class="btn btn-primary btn-font marginright-btn margin-btn" id="add_coverage_btn">
-                            </div>
-                        <?php endif; ?>
-
-
                     </div>
-
-                    <div class="widget-area">
-                        <div class="inline-form">
-                            <label>إختيار الأقسام</label>
-                            <span class="span-sections">
-                                <?php
-                                $sections_arr = explode(",", $this->session->userdata("open_sections"));
-                                foreach ($sections as $section) {
-
-                                    echo "<input type='checkbox' name='section[]' class='section_check' value='" . $section["id"] . "'/><p>" . $section["name"] . "</p><br>";
-
-                                }
-                                ?>
-                            </span>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="col-md-62 clear">
                     <div class="widget-area">

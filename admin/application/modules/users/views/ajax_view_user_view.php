@@ -1,9 +1,9 @@
 <div class="widget-area" style="margin-top: 0px;">
-	<?php if ( ! empty($user["picture"])): ?> 
+	<?php if ( ! empty($user["picture"])): ?>
 		<div style="float: right;">
 			<img src="<?= USER_PHOTOS . $user['picture']; ?>" alt="<?= $user['name']; ?>" />
 		</div>
-	<?php endif; ?> 
+	<?php endif; ?>
 	<div style="float: right; padding-right: 20px;">
 		<h3>الإسم: <span style="color: #2083A6;"><?= $user["name"]; ?></span></h3>
 		<h3>المجموعة: <span style="color: #2083A6;"><?= $user["group_name"]; ?></span></h3>
@@ -72,9 +72,9 @@
 		<hr>
 		<h3>- صلاحيات الأقسام:</h3>
 		<?php if (isset($sections)): ?>
-		<?php foreach ($sections as $section): ?> 
+		<?php foreach ($sections as $section): ?>
 			<h4><input type="checkbox" disabled <?php if (in_array($section["id"], explode(",", $user_permissions["open_sections"]))) echo "checked"; ?> /> <?= $section["name"]; ?></h4>
-		<?php endforeach; ?> 
+		<?php endforeach; ?>
 		<?php endif; ?>
 	</div>
 </div>

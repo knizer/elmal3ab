@@ -6,24 +6,24 @@ class Albums_featured extends MX_Controller {
     {
         parent::__construct();
         $this->deny->deny_if_logged_out();
-        
+
         $this->load->model("albumsfeatured_model");
       //  error_reporting(0);
     }
-    
-    
+
+
     public function index()
     {
-        $authorized = $this->common_model->authorized_to_view_page("featured_news_control");
+        $authorized = $this->common_model->authorized_to_view_page("images_albums");
 		if ($authorized)
 		{
 
 			$per_page = 5;
-			$offset = (int) $this->uri->segment(2); 
+			$offset = (int) $this->uri->segment(2);
 			$data['list_data'] = $this->albumsfeatured_model->retrieveListData('featured_albums');
 			$data['albums'] = $this->albumsfeatured_model->retrieveData($offset, $per_page);
 			$data['albums_count'] = $this->albumsfeatured_model->countData();
-			$config["base_url"] = site_url() . "albums_featured/";
+			$config["base_url"] = ROOT . "albums_featured/";
 			$config['uri_segment'] = 2;
 			$config["total_rows"] = $data['albums_count'];
 			$config["per_page"] = $per_page;
@@ -52,21 +52,21 @@ class Albums_featured extends MX_Controller {
 			$this->load->view('playlists_view', $data);
         }
     }
-    
+
      public function search($query)
     {
-		if(! $query) redirect(site_url());
-        $authorized = $this->common_model->authorized_to_view_page("featured_news_control");
+		if(! $query) redirect(ROOT);
+        $authorized = $this->common_model->authorized_to_view_page("images_albums");
 		if ($authorized)
 		{
-		 
+
 			$query = urldecode($query);
 			$per_page = 5;
-			$offset = (int) $this->uri->segment(4); 
+			$offset = (int) $this->uri->segment(4);
 			$data['list_data'] = $this->albumsfeatured_model->retrieveListData('featured_albums');
 			$data['albums'] = $this->albumsfeatured_model->retrieveDataSearch($query, $offset, $per_page);
 			$data['albums_count'] = $this->albumsfeatured_model->countData($query);
-			$config["base_url"] = site_url() . "albums_featured/search/".$query;
+			$config["base_url"] = ROOT . "albums_featured/search/".$query;
 			$config['uri_segment'] = 4;
 			$config["total_rows"] = $data['albums_count'];
 			$config["per_page"] = $per_page;
@@ -94,20 +94,20 @@ class Albums_featured extends MX_Controller {
 			$data['per_page'] = $per_page;
 			$this->load->view('playlists_view', $data);
         }
-    }  
-   
-   
+    }
+
+
     public function get_album()
     {
         $data['article'] = $this->albumsfeatured_model->retrieveCustomDatabyID('albums', $_POST['album_id']);
         $this->load->view('article_view', $data);
-        
-        
+
+
     }
-    
-    
-    
-    
+
+
+
+
     public function saveChanges()
     {
         //echo $_POST['list_det'];
@@ -121,7 +121,7 @@ class Albums_featured extends MX_Controller {
             if (strpos($listElement, 'to_') !== false)
                 $flag = 1;
         }
-        
+
         //--delete old list elements
         if ((count($arr) - 1) <= 12) {
             if ($flag == 1)
@@ -146,7 +146,7 @@ class Albums_featured extends MX_Controller {
                     $count_flag = 1;
                 }
             }
-       
+
             if ($count_flag != 1) {
                 foreach ($newArr as $element) {
                     $this->albumsfeatured_model->addFeaturedToLost($element);
@@ -159,8 +159,8 @@ class Albums_featured extends MX_Controller {
             echo 0;
         }
     }
-    
-    
+
+
     public function findAttribute($html, $att)
     {
         $pattern = '/' . $att . '="([^"]+)"/isU';
@@ -174,9 +174,9 @@ class Albums_featured extends MX_Controller {
             return null;
         }
     }
-    
-    
-} 
+
+
+}
 
 
 /* End of file featured_news.php */

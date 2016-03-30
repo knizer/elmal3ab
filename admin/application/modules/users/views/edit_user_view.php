@@ -1,4 +1,4 @@
-<?php $this->load->view("header"); ?> 
+<?php $this->load->view("header"); ?>
 
 <div class="container">
 	<div class="col-md-12">
@@ -11,11 +11,11 @@
 			<div class="col-md-12">
 				<div class="widget-area">
                     <div class="wizard-form-h">
-						<?php if (isset($status)): ?> 
+						<?php if (isset($status)): ?>
 							<div class="col-md-122" style="margin-top: -20px; margin-bottom: 20px;">
-								<?= $status; ?> 
+								<?= $status; ?>
 							</div>
-						<?php endif; ?> 
+						<?php endif; ?>
 						<div class="col-md-122" style="margin-bottom: 15px;">
 							<button type="button" id="change-info-btn" class="btn btn-primary btn-font" style="width: 140px;">تعديل البيانات</button>
 							<div id="change-info-div" style="display: none; padding-top: 10px;">
@@ -31,15 +31,15 @@
 											<label class="c-label">المجموعة *</label>
 											<select name="group_id" required>
 												<option value=""></option>
-												<?php if (isset($groups)): ?> 
-												<?php foreach ($groups as $group): ?> 
-													<?php if ($group["id"] == $user["group_id"]): ?> 
+												<?php if (isset($groups)): ?>
+												<?php foreach ($groups as $group): ?>
+													<?php if ($group["id"] == $user["group_id"]): ?>
 														<option value="<?= $group['id']; ?>" selected><?= $group['name']; ?></option>
-													<?php else: ?> 
+													<?php else: ?>
 														<option value="<?= $group['id']; ?>"><?= $group['name']; ?></option>
-													<?php endif; ?> 
-												<?php endforeach; ?> 
-												<?php endif; ?> 
+													<?php endif; ?>
+												<?php endforeach; ?>
+												<?php endif; ?>
 											</select>
 										</div>
 									</div>
@@ -168,10 +168,10 @@
 									<hr />
 									<h4>صلاحيات الأقسام</h4>
 									<?php if (isset($sections)): ?>
-									<?php foreach ($sections as $section): ?> 
+									<?php foreach ($sections as $section): ?>
 										<h4><input type="checkbox" name="<?= $section['id']; ?>" value="1"
 												   <?php if (in_array($section["id"], explode(",", $user_permissions["open_sections"]))) echo "checked"; ?> /> <?= $section["name"]; ?></h4>
-									<?php endforeach; ?> 
+									<?php endforeach; ?>
 									<?php endif; ?>
 									<div class="col-md-122" style="margin-top: 15px;">
 										<input type="submit" name="permissions_submit" value="حفظ" class="btn btn-success btn-font" />
@@ -184,13 +184,13 @@
 			</div>
 		</div>
 	</div>
-	<?php //$this->load->view("slide_panel"); ?> 
+	<?php //$this->load->view("slide_panel"); ?>
 </div><!-- Page Container -->
 <?php $this->load->view("footer"); ?>
 <script>
 	$(document).ready(function() {
 		$("#change-info-div").slideDown("slow");
-		
+
 		// Toggle the initially hidden divs on clicks of their respective buttons
 		$("#change-info-btn").click(function () {
 			$("#change-info-div").slideDown("slow");
@@ -198,21 +198,21 @@
 			$("#change-picture-div").hide();
 			$("#change-permissions-div").hide();
 		});
-		
+
 		$("#change-password-btn").click(function () {
 			$("#change-password-div").slideDown("slow");
 			$("#change-info-div").hide();
 			$("#change-picture-div").hide();
 			$("#change-permissions-div").hide();
 		});
-		
+
 		$("#change-picture-btn").click(function () {
 			$("#change-picture-div").slideDown("slow");
 			$("#change-info-div").hide();
 			$("#change-password-div").hide();
 			$("#change-permissions-div").hide();
 		});
-		
+
 		$("#change-permissions-btn").click(function () {
 			$("#change-permissions-div").slideDown("slow");
 			$("#change-info-div").slideUp("slow");

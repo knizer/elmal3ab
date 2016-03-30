@@ -37,13 +37,8 @@
 								<tr>
 									<td><?= $album["id"]; ?></td>
 									<td class="tables-padded-td">
-										<?php if ($album['old_album'] == 0): ?>
-											<img src="<?= IMG_ARCHIVE . '622x307/' . $album['main_image']; ?>" alt="<?= $album['title']; ?>"
-												 style="width: 200px; height: 120px; float: right; margin-top: 15px; margin-left: 25px;" />
-										<?php else: ?>
-											<img src="<?= OLD_IMG_ARCHIVE . $album['main_image']; ?>" alt="<?= $album['title']; ?>"
-												 style="width: 200px; height: 120px; float: right; margin-top: 15px; margin-left: 25px;" />
-										<?php endif; ?>
+										<img src="<?= IMG_ARCHIVE . '622x307/' . $album['main_image']; ?>" alt="<?= $album['title']; ?>"
+											 style="width: 200px; height: 120px; float: right; margin-top: 15px; margin-left: 25px;" />
 										<div style="float: right; width: 70%;">
 											<h3><?= $album["title"]; ?></h3>
 											<h4>تصوير: <?= ( ! is_null($album["photographer"])) ? $album["photographer"] : "<span style='color: red;'>غير محدد</span>"; ?></h4>
@@ -56,21 +51,15 @@
 										</div>
 									</td>
 									<td>
-										<a href="<?= site_url(); ?>albums/view/<?= $album['id']; ?>">
+										<a href="<?= ROOT; ?>albums/view/<?= $album['id']; ?>">
 											<button class="btn btn-primary btn-font tables-full-width-btn" type="button">عرض</button>
 										</a>
-										<a href="<?= site_url(); ?>albums/edit/<?= $album['id']; ?>">
+										<a href="<?= ROOT; ?>albums/edit/<?= $album['id']; ?>">
 											<button class="btn btn-warning btn-font tables-full-width-btn" type="button">تعديل</button>
 										</a>
-										<?php if ($this->session->userdata("delete_album") == 1): ?>
-											<a onclick="alertDelete('albums/delete/<?= $album['id']; ?>', 'هل أنت متأكد من حذف هذا الألبوم؟');" href="javascript:void(null);">
-												<button class="btn btn-danger btn-font tables-full-width-btn" type="button" >حذف</button>
-											</a>
-										<?php else: ?>
-											<a>
-												<button class="btn btn-danger btn-font tables-full-width-btn no-permission-btn" type="button" title="لا تملك صلاحيات كافية">حذف</button>
-											</a>
-										<?php endif; ?>
+										<a onclick="alertDelete('albums/delete/<?= $album['id']; ?>', 'هل أنت متأكد من حذف هذا الألبوم؟');" href="javascript:void(null);">
+											<button class="btn btn-danger btn-font tables-full-width-btn" type="button" >حذف</button>
+										</a>
 									</td>
 								</tr>
 								<?php endforeach; ?>

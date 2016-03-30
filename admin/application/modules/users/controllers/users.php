@@ -14,7 +14,7 @@ class Users extends MX_Controller {
 
 	public function index()
 	{
-		$authorized = $this->common_model->authorized_to_view_page("manage_users");
+		$authorized = $this->common_model->authorized_to_view_page("users_groups");
 		if ($authorized)
 		{
 			$data = array();
@@ -49,7 +49,7 @@ class Users extends MX_Controller {
 
 	public function search($query = "")
 	{
-		$authorized = $this->common_model->authorized_to_view_page("manage_users");
+		$authorized = $this->common_model->authorized_to_view_page("users_groups");
 		if ($authorized)
 		{
 			if (empty($query)) redirect(site_url() . "users");
@@ -87,7 +87,7 @@ class Users extends MX_Controller {
 
 	public function add()
 	{
-        $authorized = $this->common_model->authorized_to_view_page("add_user");
+        $authorized = $this->common_model->authorized_to_view_page("users_groups");
 		if ($authorized)
 		{
             $data = array();
@@ -179,7 +179,7 @@ class Users extends MX_Controller {
 
 	public function view($id = "")
 	{
-		$authorized = $this->common_model->authorized_to_view_page("manage_users");
+		$authorized = $this->common_model->authorized_to_view_page("users_groups");
 		if ($authorized)
 		{
 			$user = $this->users_model->get_user_details($id);
@@ -200,7 +200,7 @@ class Users extends MX_Controller {
 
     public function edit($id = "")
 	{
-        $authorized = $this->common_model->authorized_to_view_page("add_user");
+        $authorized = $this->common_model->authorized_to_view_page("users_groups");
 		if ($authorized)
 		{
 			$user = $this->common_model->get_subject_with_token("users_details", "id", $id);
@@ -415,7 +415,7 @@ class Users extends MX_Controller {
 
 	public function delete($id = "")
     {
-		$authorized = $this->common_model->authorized_to_view_page("delete_user");
+		$authorized = $this->common_model->authorized_to_view_page("users_groups");
 		if ($authorized)
 		{
 			$user = $this->common_model->get_subject_with_token("users_details", "id", $id);

@@ -25,21 +25,6 @@
 										<input type="text" name="title" value="<?= $album['title']; ?>" required />
 									</div>
 									<div class="inline-form">
-										<label class="c-label">الوصف *</label>
-										<textarea name="description" style="height: 75px;" required><?= $album['description']; ?></textarea>
-									</div>
-									<div class="inline-form">
-										<label class="c-label">القسم *</label>
-										<select name="section_id" required>
-											<option value=""></option>
-											<?php if (isset($sections)): ?>
-											<?php foreach ($sections as $section): ?>
-												<option value="<?= $section['id']; ?>" <?php if ($section["id"] == $album["section_id"]) echo "selected"; ?>><?= $section["name"]; ?></option>
-											<?php endforeach; ?>
-											<?php endif; ?>
-										</select>
-									</div>
-									<div class="inline-form">
 										<label class="c-label">تصوير</label>
 										<input type="text" name="photographer" value="<?= $album['photographer']; ?>" />
 									</div>
@@ -50,17 +35,10 @@
 											<?php foreach ($album_images as $image): ?>
 												<div class="album-img">
 													<button type="button" class="fa fa-remove remove-img-btn" onclick="remove_image_from_album(this);"></button>
-													<?php if ($album['old_album'] == 0): ?>
-														<img src="<?= IMG_ARCHIVE . '622x307/' . $image['image_name']; ?>" class="edit-album-img"
-															 id="<?= $image['image_id']; ?>&<?= $image['image_name']; ?>" width="185" height="110"
-															 onclick="select_as_main_image(this);"
-														<?php if ($image["image_name"] == $album["main_image"]) echo "style='opacity: 0.5; border: 2px solid red;'"; ?> />
-													<?php else: ?>
-														<img src="<?= OLD_IMG_ARCHIVE . $image['image_name']; ?>" class="edit-album-img"
-															 id="<?= $image['image_id']; ?>&<?= $image['image_name']; ?>" width="185" height="110"
-															 onclick="select_as_main_image(this);"
-														<?php if ($image["image_name"] == $album["main_image"]) echo "style='opacity: 0.5; border: 2px solid red;'"; ?> />
-													<?php endif; ?>
+													<img src="<?= IMG_ARCHIVE . '622x307/' . $image['image_name']; ?>" class="edit-album-img"
+														 id="<?= $image['image_id']; ?>&<?= $image['image_name']; ?>" width="185" height="110"
+														 onclick="select_as_main_image(this);"
+													<?php if ($image["image_name"] == $album["main_image"]) echo "style='opacity: 0.5; border: 2px solid red;'"; ?> />
 												</div>
 											<?php endforeach; ?>
 											<?php endif; ?>
@@ -107,7 +85,7 @@
 			this_window_title = window.document.title;
 
 			$("#add-images").click(function () {
-				images_window = window.open("<?= site_url(); ?>images/list_images", "_blank", "toolbar=yes, scrollbars=yes, top=0, left=0, width=1050, height=" + window.innerHeight);
+				images_window = window.open("<?= ROOT; ?>images/list_images", "_blank", "toolbar=yes, scrollbars=yes, top=0, left=0, width=1050, height=" + window.innerHeight);
 				var timer = setInterval(check_window_close, 500);
 
 				images_path = "<?= IMG_ARCHIVE . '622x307/'; ?>";

@@ -82,9 +82,9 @@ class Home extends MX_Controller {
 							"username" => $username,
 							"group_id" => $group_id,
 							"stadiums" => $stadiums,
-							"albums" => $albums,
-							"images" => $images,
-							"videos" => $videos
+							"images_albums" => $images_albums,
+							"videos" => $videos,
+							"users_groups" => $users_groups
 						);
 
 						$this->session->set_userdata($session_data);

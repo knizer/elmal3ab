@@ -1,4 +1,4 @@
-<?php $this->load->view("header"); ?> 
+<?php $this->load->view("header"); ?>
 
 <div class="container">
     <div class="col-md-12">
@@ -101,36 +101,8 @@
                                 <?php endif; ?>
                             </select>
                         </div>
-
-                        <?php if ($this->session->userdata("add_coverage") == 1): ?>
-                            <div class="col-md-3">
-                                <input type="button" value="أضافة تغطية" class="btn btn-primary btn-font" id="add_coverage_btn" style="margin-top: 18px;" />
-                            </div>
-                        <?php endif; ?>
-
-
-                    </div>
-
-                    <div class="widget-area">
-                        <div class="inline-form" >
-                            <label>إختيار الأقسام </label>
-                            <span style="margin-right: 12px; display: block; padding: 9px 0;">
-                                <?php
-                                $sections_arr = explode(",", $this->session->userdata("open_sections"));
-                                foreach ($sections as $section) {
-                                    if (in_array($section['id'], $sections_arr)){
-                                        if (isset($sections_) && strpos($sections_, '[' . $section['id'] . ']') !== false) {
-                                            echo'  <input type="checkbox" name="section[]" class="section_check" value="' . $section['id'] . '" checked>  ' . $section['name'] . "<br>   ";
-                                        } else
-                                            echo'  <input type="checkbox" name="section[]" class="section_check" value="' . $section['id'] . '">  ' . $section['name'] . "<br>   ";
-                                    }
-                                }
-                                ?>
-                            </span>
-                        </div>
                     </div>
                 </div>
-
 
                 <div class="col-md-62 clear">
                     <div class="widget-area">

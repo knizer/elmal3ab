@@ -10,14 +10,6 @@
 		<div class="masonary-grids">
 			<div class="col-md-12">
 				<div class="widget-area">
-					<h4>الوصف: <span style="color: #2083A6;"><?= $album["description"]; ?></span></h4>
-					<h4>القسم:
-						<?php if ( ! is_null($album["section_name"])): ?>
-							<span style="color: #2083A6;"><?= $album["section_name"]; ?></span>
-						<?php else: ?>
-							<span style="color: red;">غير محدد</span>
-						<?php endif; ?>
-					</h4>
 					<h4>تصوير:
 						<?php if ( ! is_null($album["photographer"])): ?>
 							<span style="color: #2083A6;"><?= $album["photographer"]; ?></span>
@@ -44,17 +36,10 @@
 						<?php if (isset($album_images)): ?>
 							<div>
 								<?php foreach ($album_images as $image): ?>
-									<?php if ($album['old_album'] == 0): ?>
-										<img src="<?= IMG_ARCHIVE . '622x307/' . $image['image_name']; ?>"
-											 style="width: 210px; height: 110px; float: right; margin-left: 10px;
-													margin-bottom: 10px; <?php if ($image["image_name"] == $album["main_image"]) echo "opacity: 0.5; border: 2px solid red;"; ?>"
-													<?php if ($image["image_name"] == $album["main_image"]) echo "title='الصورة الرئيسية'"; ?> />
-									<?php else: ?>
-										<img src="<?= OLD_IMG_ARCHIVE . $image['image_name']; ?>"
-											 style="width: 210px; height: 110px; float: right; margin-left: 10px;
-													margin-bottom: 10px; <?php if ($image["image_name"] == $album["main_image"]) echo "opacity: 0.5; border: 2px solid red;"; ?>"
-													<?php if ($image["image_name"] == $album["main_image"]) echo "title='الصورة الرئيسية'"; ?> />
-									<?php endif; ?>
+									<img src="<?= IMG_ARCHIVE . '622x307/' . $image['image_name']; ?>"
+										 style="width: 210px; height: 110px; float: right; margin-left: 10px;
+												margin-bottom: 10px; <?php if ($image["image_name"] == $album["main_image"]) echo "opacity: 0.5; border: 2px solid red;"; ?>"
+												<?php if ($image["image_name"] == $album["main_image"]) echo "title='الصورة الرئيسية'"; ?> />
 								<?php endforeach; ?>
 							</div>
 						<?php else: ?>

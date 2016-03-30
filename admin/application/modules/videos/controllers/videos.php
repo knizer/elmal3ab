@@ -20,7 +20,7 @@ class videos extends MX_Controller {
 
     public function unpublished()
 	{
-		$authorized = $this->common_model->authorized_to_view_page("manage_videos");
+		$authorized = $this->common_model->authorized_to_view_page("videos");
 		if ($authorized)
 		{
 			if (!is_numeric($this->uri->segment(3)))
@@ -84,7 +84,7 @@ class videos extends MX_Controller {
 
 	public function published()
 	{
-		$authorized = $this->common_model->authorized_to_view_page("manage_videos");
+		$authorized = $this->common_model->authorized_to_view_page("videos");
 		if ($authorized)
 		{
 			if (!is_numeric($this->uri->segment(3)))
@@ -216,7 +216,7 @@ class videos extends MX_Controller {
 
     public function add()
 	{
-		$authorized = $this->common_model->authorized_to_view_page("add_video");
+		$authorized = $this->common_model->authorized_to_view_page("videos");
 		if ($authorized)
 		{
 			$data = array();
@@ -265,10 +265,6 @@ class videos extends MX_Controller {
 				$data['publish'] = $publish = (isset($_POST["publish"])) ? 1 : 0;
 				$data["status"] = "";
 
-//				if (empty($related_videos) )
-//				{
-//					$data["status"]= "<p class='error-msg'>من فضلك قم بإضافة فيديوهات متعلقة! </p>";
-//				}
 				if (empty($_POST["section"]))
 				{
 					$data["status"] = "<p class='error-msg'>من فضلك قم بإضافة الأقسام! </p>";
@@ -300,7 +296,7 @@ class videos extends MX_Controller {
 
 	function view($id)
 	{
-		$authorized = $this->common_model->authorized_to_view_page("manage_videos");
+		$authorized = $this->common_model->authorized_to_view_page("videos");
 		if ($authorized)
 		{
 			$video = $this->videos_model->retrieveCustomDatabyID('videos',$id);
@@ -312,7 +308,7 @@ class videos extends MX_Controller {
 
 	public function edit($id = "")
 	{
-		$authorized = $this->common_model->authorized_to_view_page("edit_video");
+		$authorized = $this->common_model->authorized_to_view_page("videos");
 		if ($authorized)
 		{
 			$video = $this->videos_model->retrieveCustomDatabyID("videos", $id);
@@ -429,15 +425,12 @@ class videos extends MX_Controller {
 
 	public function delete($id)
 	{
-		$authorized = $this->common_model->authorized_to_view_page("delete_video");
+		$authorized = $this->common_model->authorized_to_view_page("videos");
 		if ($authorized)
 		{
 			$video = $this->common_model->get_subject_with_token("videos", "id", $id);
 			if (empty($id) OR ! $video) show_404();
 
-			// Log action before deleting
-			$deleted_title = $video["title"];
-			$this->common_model->log_action($this->session->userdata("id"), $this->session->userdata("username"), "مسح فيديو", "videos", $id, $deleted_title);
 			$this->videos_model->delete_video($id);
 
 			$this->session->set_flashdata("status", "تمت العملية بنجاح");

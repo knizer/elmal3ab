@@ -40,47 +40,33 @@
                 <ul>
                     <li class='active'><a href='<?= ROOT; ?>'>الرئيسية</a></li>
 
-                    <li id="li2-inplus"><a href='#'>الصور</a>
-                        <ul>
-                            <li><a href='<?= ROOT; ?>images/add'>إضافة صور/ألبوم</a></li>
-                            <li><a href='<?= ROOT; ?>images'>إدارة الصور</a></li>
-                            <li><a href='<?= ROOT; ?>old_images'>عرض الصور القديمة</a></li>
-                            <li><a href='<?= ROOT; ?>albums'>إدارة الألبومات</a></li>
-                            <li><a href='<?= ROOT; ?>albums_featured'>رئيسية الألبومات</a></li>
-                        </ul>
-                    </li>
-
-                    <?php if ($this->session->userdata("add_video") == 1 OR $this->session->userdata("manage_videos") == 1): ?>
-                        <li id="li9-inplus"><a href='#'>الفيديوهات</a>
+                    <?php if ($this->session->userdata("images_albums") == 1): ?>
+                        <li id="li2-inplus"><a href='#'>الصور</a>
                             <ul>
-                                <?php if ($this->session->userdata("add_video") == 1): ?>
-                                    <li><a href="<?= ROOT; ?>videos/add">فيديو جديد</a></li>
-                                <?php endif; ?>
-                                <?php if ($this->session->userdata("manage_videos") == 1): ?>
-                                    <li><a href="<?= ROOT; ?>videos/unpublished">إدارة الفيديوهات </a></li>
-                                <?php endif; ?>
+                                <li><a href='<?= ROOT; ?>images/add'>إضافة صور/ألبوم</a></li>
+                                <li><a href='<?= ROOT; ?>images'>إدارة الصور</a></li>
+                                <li><a href='<?= ROOT; ?>albums'>إدارة الألبومات</a></li>
+                                <li><a href='<?= ROOT; ?>albums_featured'>رئيسية الألبومات</a></li>
                             </ul>
                         </li>
                     <?php endif; ?>
 
-                    <?php
-                    if ($this->session->userdata("add_user") == 1 OR $this->session->userdata("manage_users") == 1 OR
-                            $this->session->userdata("add_group") == 1 OR $this->session->userdata("manage_groups") == 1):
-                        ?>
+                    <?php if ($this->session->userdata("videos") == 1): ?>
+                        <li id="li9-inplus"><a href='#'>الفيديوهات</a>
+                            <ul>
+                                <li><a href="<?= ROOT; ?>videos/add">فيديو جديد</a></li>
+                                <li><a href="<?= ROOT; ?>videos/unpublished">إدارة الفيديوهات </a></li>
+                            </ul>
+                        </li>
+                    <?php endif; ?>
+
+                    <?php if ($this->session->userdata("users_groups") == 1): ?>
                         <li id="li11-inplus"><a href='#'>المستخدمين</a>
                             <ul>
-                                <?php if ($this->session->userdata("add_user") == 1): ?>
-                                    <li><a href="<?= ROOT; ?>users/add">مستخدم جديد</a></li>
-                                <?php endif; ?>
-                                <?php if ($this->session->userdata("manage_users") == 1): ?>
-                                    <li><a href="<?= ROOT; ?>users">إدارة المستخدمين</a></li>
-                                <?php endif; ?>
-                                <?php if ($this->session->userdata("add_group") == 1): ?>
-                                    <li><a href="<?= ROOT; ?>groups/add">مجموعة جديدة</a></li>
-                                <?php endif; ?>
-                                <?php if ($this->session->userdata("manage_groups") == 1): ?>
-                                    <li><a href="<?= ROOT; ?>groups">إدارة المجموعات</a></li>
-                                <?php endif; ?>
+                                <li><a href="<?= ROOT; ?>users/add">مستخدم جديد</a></li>
+                                <li><a href="<?= ROOT; ?>users">إدارة المستخدمين</a></li>
+                                <li><a href="<?= ROOT; ?>groups/add">مجموعة جديدة</a></li>
+                                <li><a href="<?= ROOT; ?>groups">إدارة المجموعات</a></li>
                             </ul>
                         </li>
                     <?php endif; ?>

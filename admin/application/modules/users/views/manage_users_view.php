@@ -1,4 +1,4 @@
-<?php $this->load->view("header"); ?> 
+<?php $this->load->view("header"); ?>
 
 <div class="container">
 	<div class="col-md-12">
@@ -18,9 +18,9 @@
 		<div class="masonary-grids">
 			<div class="col-md-12">
 				<div class="widget-area">
-					<?php if ($this->session->flashdata("status")): ?> 
+					<?php if ($this->session->flashdata("status")): ?>
 						<div class="col-md-122" id="status" style="background-color: #EEE; padding: 10px;"><p class="success-msg"><?= $this->session->flashdata("status"); ?></p></div>
-					<?php endif; ?> 
+					<?php endif; ?>
 					<div class="streaming-table">
 						<span id="found" class="label label-info"></span>
 						<table id="stream_table" class='table table-striped table-bordered'>
@@ -35,8 +35,8 @@
 								</tr>
 							</thead>
 							<tbody class="tbody_admin">
-								<?php if (isset($users)): ?> 
-								<?php foreach ($users as $user): ?> 
+								<?php if (isset($users)): ?>
+								<?php foreach ($users as $user): ?>
 								<tr>
 									<td><?= $user["id"]; ?></td>
 									<td class="tables-centered-both-td"><?= $user["name"]; ?></td>
@@ -47,52 +47,40 @@
 										</a>
 									</td>
 									<td>
-										<?php if ($this->session->userdata("add_user") == 1): ?> 
-											<a href="<?= site_url(); ?>users/edit/<?= $user['id']; ?>">
-												<button class="btn btn-warning btn-font tables-full-width-btn" type="button">تعديل</button>
-											</a>
-										<?php else: ?>
-											<a>
-												<button class="btn btn-warning btn-font tables-full-width-btn no-permission-btn" type="button" title="لا تملك صلاحيات كافية">تعديل</button>
-											</a>
-										<?php endif; ?> 
+										<a href="<?= site_url(); ?>users/edit/<?= $user['id']; ?>">
+											<button class="btn btn-warning btn-font tables-full-width-btn" type="button">تعديل</button>
+										</a>
 									</td>
 									<td>
-										<?php if ($this->session->userdata("delete_user") == 1): ?> 
-											<a onclick="alertDelete('users/delete/<?= $user['id']; ?>', 'هل أنت متأكد من حذف هذا المستخدم؟');" href="javascript:void(null);">
-												<button class="btn btn-danger btn-font tables-full-width-btn" type="button" >حذف</button>
-											</a>
-										<?php else: ?>
-											<a>
-												<button class="btn btn-danger btn-font tables-full-width-btn no-permission-btn" type="button" title="لا تملك صلاحيات كافية">حذف</button>
-											</a>
-										<?php endif; ?> 
+										<a onclick="alertDelete('users/delete/<?= $user['id']; ?>', 'هل أنت متأكد من حذف هذا المستخدم؟');" href="javascript:void(null);">
+											<button class="btn btn-danger btn-font tables-full-width-btn" type="button" >حذف</button>
+										</a>
 									</td>
 								</tr>
 								<?php endforeach; ?>
-								<?php endif; ?> 
+								<?php endif; ?>
 							</tbody>
 						</table>
 					</div>
-					
-					<?php if (isset($pagination)): ?> 
+
+					<?php if (isset($pagination)): ?>
 						<div class="pagination-news">
-							<?= $pagination; ?> 
+							<?= $pagination; ?>
 						</div>
-					<?php endif; ?> 
-					
+					<?php endif; ?>
+
 					<!-- Empty modal -->
                     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content"></div>
                         </div>
                     </div>
-					
+
 				</div>
 			</div>
 		</div>
 	</div>
-	<?php //$this->load->view("slide_panel"); ?> 
+	<?php //$this->load->view("slide_panel"); ?>
 </div><!-- Page Container -->
 <?php $this->load->view("footer"); ?>
 <script>

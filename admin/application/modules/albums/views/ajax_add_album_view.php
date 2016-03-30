@@ -6,21 +6,6 @@
 			<input type="text" id="title" maxlength="120" />
 		</div>
 		<div class="inline-form">
-			<label class="c-label">الوصف *</label>
-			<textarea id="description" style="height: 80px;"></textarea>
-		</div>
-		<div class="inline-form">
-			<label class="c-label">القسم *</label>
-			<select id="section_id">
-				<option value=""></option>
-				<?php if (isset($sections)): ?>
-				<?php foreach ($sections as $section): ?>
-					<option value="<?= $section['id']; ?>"><?= $section["name"]; ?></option>
-				<?php endforeach; ?>
-				<?php endif; ?>
-			</select>
-		</div>
-		<div class="inline-form">
 			<label class="c-label">تصوير</label>
 			<input type="text" id="photographer" />
 		</div>
@@ -50,7 +35,7 @@
 
 		$.ajax({
 			type: "POST",
-			url: "<?= site_url(); ?>images/check_for_images_just_uploaded",
+			url: "<?= ROOT; ?>images/check_for_images_just_uploaded",
 			data: {session_id: session_id},
 			success: function(response) {
 				if (response != 0)
@@ -93,8 +78,6 @@
 
 		$("#save").click(function() {
 			var title = $("#title").val().trim();
-			var description = $("#description").val().trim();
-			var section_id = $("#section_id").val();
 			var photographer = $("#photographer").val().trim();
 			var main_image = $("#main_image").val();
 			var publish = 0;
@@ -104,7 +87,7 @@
 			{
 				$("#status").html("يجب ألا يتعدي عنوان الألبوم 120 حرف");
 			}
-			else if ( ! (title && description && section_id))
+			else if ( ! (title))
 			{
 				$("#status").html("يجب إدخال جميع البيانات الإجبارية");
 			}
@@ -112,7 +95,7 @@
 			{
 				$.ajax({
 					type: "POST",
-					url: "<?= site_url(); ?>albums/check_title_exists",
+					url: "<?= ROOT; ?>albums/check_title_exists",
 					data: {token: "ajax_request", title: title},
 					success: function(response) {
 						if (response == 1)
@@ -123,8 +106,8 @@
 						{
 							$.ajax({
 								type: "POST",
-								url: "<?= site_url(); ?>albums/add",
-								data: {token: "ajax_request", title: title, description: description, section_id: section_id, photographer: photographer, main_image: main_image, publish: publish, assigned_images: assigned_images},
+								url: "<?= ROOT; ?>albums/add",
+								data: {token: "ajax_request", title: title, photographer: photographer, main_image: main_image, publish: publish, assigned_images: assigned_images},
 								success: function(response) {
 									$("#modal").modal("toggle");
 									$("#add-to-album").hide();

@@ -1,4 +1,4 @@
-<?php $this->load->view("header"); ?> 
+<?php $this->load->view("header"); ?>
 
 <div class="container">
     <div class="col-md-12" style="margin-bottom: 30px;">
@@ -62,28 +62,15 @@
 												<a onclick="viewInModal('videos/view/<?= $video_item->id; ?>');" href="javascript:void(null);">
 													<button class="btn btn-primary btn-font tables-full-width-btn" data-toggle="modal" data-target=".bs-example-modal-lg" type="button"> التفاصيل</button>
 												</a>
-												<?php if ($this->session->userdata("edit_video") == 1): ?>
-													<a href="<?= ROOT; ?>videos/edit/<?= $video_item->id; ?>">
-														<button class="btn btn-warning btn-font new-width" type="button">تعديل</button>
-													</a>
-												<?php else: ?>
-													<a>
-														<button class="btn btn-warning btn-font new-width no-permission-btn" type="button" title="لا تملك صلاحيات كافية">تعديل</button>
-													</a>
-												<?php endif; ?>
-												<?php if ($this->session->userdata("delete_video") == 1): ?>
-													<a onclick="alertDelete('videos/delete/<?= $video_item->id; ?>', 'هل أنت متأكد من حذف هذا الفيديو؟');" href="javascript:void(null);">
-														<button class="btn btn-danger btn-font new-width" type="button" >حذف</button>
-													</a>
-												<?php else: ?>
-													<a>
-														<button class="btn btn-danger btn-font new-width no-permission-btn" type="button" title="لا تملك صلاحيات كافية">حذف</button>
-													</a>
-												<?php endif; ?>
+												<a href="<?= ROOT; ?>videos/edit/<?= $video_item->id; ?>">
+													<button class="btn btn-warning btn-font new-width" type="button">تعديل</button>
+												</a>
+												<a onclick="alertDelete('videos/delete/<?= $video_item->id; ?>', 'هل أنت متأكد من حذف هذا الفيديو؟');" href="javascript:void(null);">
+													<button class="btn btn-danger btn-font new-width" type="button" >حذف</button>
+												</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
-
                                 <?php endif; ?>
                             </tbody>
                         </table>

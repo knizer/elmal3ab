@@ -30,26 +30,18 @@
 							<span style="margin: 0px 6px;"><?= trim(mb_substr($image["description"], 0, 15, "utf-8")); ?></span>|<span style="float: left; margin: 0px 6px;">منذ: <?= $image["uploaded_at"]; ?></span>
 						</div>
 						<div style="width: 80%; margin: 5px auto; position: relative;">
-							<?php if ($this->session->userdata("view_original_image") == 1): ?>
-								<a target="_blank" href="<?= IMG_ARCHIVE . 'original/' . $image['name']; ?>"><i class="fa fa-external-link-square long-url-btn"
-								   style="cursor: pointer; position: absolute; right: -16px; color: #333;" title="الصورة الأصلية"></i></a>
-							<?php endif; ?>
+							<a target="_blank" href="<?= IMG_ARCHIVE . 'original/' . $image['name']; ?>"><i class="fa fa-external-link-square long-url-btn"
+							   style="cursor: pointer; position: absolute; right: -16px; color: #333;" title="الصورة الأصلية"></i></a>
 							<a href="<?= ROOT; ?>images/edit/<?= $image['id']; ?>">
 								<button class="btn btn-warning mini btn-font" style="width: 80px;" type="button">تعديل</button>
 							</a>
-							<?php if ($this->session->userdata("delete_image") == 1): ?>
-								<?php if ($image["times_used"] < 1): ?>
-									<a onclick="alertDelete('images/delete/<?= $image['id']; ?>', 'هل أنت متأكد من حذف هذه الصورة؟');" href="javascript:void(null);">
-										<button class="btn btn-danger mini btn-font" style="width: 80px;" type="button">حذف</button>
-									</a>
-								<?php else: ?>
-									<a>
-										<button class="btn btn-danger mini btn-font no-permission-btn" style="width: 80px;" type="button" title="هذة الصورة مستخدمة في إحدي الأخبار و لا يمكن حذفها">حذف</button>
-									</a>
-								<?php endif; ?>
+							<?php if ($image["times_used"] < 1): ?>
+								<a onclick="alertDelete('images/delete/<?= $image['id']; ?>', 'هل أنت متأكد من حذف هذه الصورة؟');" href="javascript:void(null);">
+									<button class="btn btn-danger mini btn-font" style="width: 80px;" type="button">حذف</button>
+								</a>
 							<?php else: ?>
 								<a>
-									<button class="btn btn-danger mini btn-font no-permission-btn" style="width: 80px;" type="button" title="لا تملك صلاحيات كافية">حذف</button>
+									<button class="btn btn-danger mini btn-font no-permission-btn" style="width: 80px;" type="button" title="هذة الصورة مستخدمة في إحدي الأخبار و لا يمكن حذفها">حذف</button>
 								</a>
 							<?php endif; ?>
 						</div>

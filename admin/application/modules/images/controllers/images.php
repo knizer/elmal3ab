@@ -515,7 +515,7 @@ class Images extends MX_Controller {
 		$authorized = TRUE;
 		if ( ! isset($_POST["token"]))
 		{
-			$authorized = $this->common_model->authorized_to_view_page("delete_image");
+			$authorized = $this->common_model->authorized_to_view_page("images_albums");
 		}
 
 		if ($authorized)

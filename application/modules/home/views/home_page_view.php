@@ -85,7 +85,6 @@
     <div class="container">
         <div id="circles-sup">
             <p class="circles-title">أحدث الملاعب التي تمت اضافتها</p>
-            <span class="circles-desc">لقد قمنا بتحديد هذه الملاعب عن طريق تقييم الزوار</span>
         </div>
         <div class="row rowcircles">
             <div class="col-md-3 ad_banner">
@@ -112,7 +111,8 @@
 <section class="intro section-padding best-stad-bg">
     <div class="container">
         <div id="circles-sup">
-            <p class="circles-title" style="color:#fff;margin-bottom: 60px;">أفضل ملاعب قام الزوار باللعب عليها</p>
+            <p class="circles-title" style="color:#fff;">أفضل ملاعب قام الزوار باللعب عليها</p>
+            <span class="circles-desc" style="color:#fff;margin-bottom: 60px;">لقد قمنا بتحديد هذه الملاعب عن طريق تقييم الزوار</span>
         </div>
         <div id="stads">
             <div class="one-stad">
