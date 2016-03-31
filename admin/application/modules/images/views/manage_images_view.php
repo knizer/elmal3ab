@@ -35,15 +35,9 @@
 							<a href="<?= ROOT; ?>images/edit/<?= $image['id']; ?>">
 								<button class="btn btn-warning mini btn-font" style="width: 80px;" type="button">تعديل</button>
 							</a>
-							<?php if ($image["times_used"] < 1): ?>
-								<a onclick="alertDelete('images/delete/<?= $image['id']; ?>', 'هل أنت متأكد من حذف هذه الصورة؟');" href="javascript:void(null);">
-									<button class="btn btn-danger mini btn-font" style="width: 80px;" type="button">حذف</button>
-								</a>
-							<?php else: ?>
-								<a>
-									<button class="btn btn-danger mini btn-font no-permission-btn" style="width: 80px;" type="button" title="هذة الصورة مستخدمة في إحدي الأخبار و لا يمكن حذفها">حذف</button>
-								</a>
-							<?php endif; ?>
+                            <a onclick="alertDelete('images/delete/<?= $image['id']; ?>', 'هل أنت متأكد من حذف هذه الصورة؟');" href="javascript:void(null);">
+                                <button class="btn btn-danger mini btn-font" style="width: 80px;" type="button">حذف</button>
+                            </a>
 						</div>
 					</div>
 				<?php endforeach; ?>

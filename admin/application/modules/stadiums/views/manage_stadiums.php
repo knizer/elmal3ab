@@ -9,14 +9,6 @@
 	<div class="row">
 		<div class="masonary-grids">
 			<div class="col-md-12">
-				<div style="position: relative; width: 100%;">
-					<a class="tabs-area" href= "<?= ROOT; ?>videos/unpublished">
-						<i class="icon-ty"><?php echo $unpublished_count ?> </i>غير منشور
-					</a>
-					<a class="tabs-area" id="bottom-zero">
-						 منشور
-					</a>
-				</div>
                 <div class="widget-area" style="margin-top: 0;">
 					<?php if ($this->session->flashdata("status")): ?>
 						<div class="col-md-122" id="status" style="background-color: #EEE; padding: 10px; margin-bottom: 15px;"><p class="success-msg"><?= $this->session->flashdata("status"); ?></p></div>
@@ -47,11 +39,14 @@
 											<img class="img-mang-arti" src="<?= IMG_ARCHIVE . "647x471/" . $video_item->image; ?>" />
 											<div class="des-sum-arti">
 												<p class="p-title-14"><?= $video_item->title; ?></p>
-												<p class="p-desc-ription"><?= mb_substr($video_item->breif, 0, 170, "utf-8"); ?></p>
                                                 <div style="width: 650px; height: 20px; overflow: hidden; float: right; display: table;">
-													<p class="sub-menus"><?= $video_item->section_name; ?></p>
 													<p class="sub-menus">كتب: <?= $video_item->author; ?></p>
 													<p class="sub-menus"> منذ: <?= $video_item->published_at; ?></p>
+                                                    <?php if ($video_item->published == 1): ?>
+        												<p class="p-title-14" style="color: green;margin-top:14px;">منشور</p>
+        											<?php elseif ($video_item->published == 0): ?>
+        												<p class="p-title-14" style="color: red;margin-top:14px;">غير منشور</p>
+        											<?php endif; ?>
                                                 </div>
 											</div>
 										</td>

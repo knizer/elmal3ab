@@ -39,6 +39,14 @@
                 <div class="button"></div>
                 <ul>
                     <li class='active'><a href='<?= ROOT; ?>'>الرئيسية</a></li>
+                    <?php if ($this->session->userdata("stadiums") == 1): ?>
+                        <li id="li9-inplus"><a href='#'>الملاعب</a>
+                            <ul>
+                                <li><a href="<?= ROOT; ?>stadiums/add">إضافة ملعب</a></li>
+                                <li><a href="<?= ROOT; ?>stadiums">إدارة الملاعب</a></li>
+                            </ul>
+                        </li>
+                    <?php endif; ?>
 
                     <?php if ($this->session->userdata("images_albums") == 1): ?>
                         <li id="li2-inplus"><a href='#'>الصور</a>
@@ -55,7 +63,7 @@
                         <li id="li9-inplus"><a href='#'>الفيديوهات</a>
                             <ul>
                                 <li><a href="<?= ROOT; ?>videos/add">فيديو جديد</a></li>
-                                <li><a href="<?= ROOT; ?>videos/unpublished">إدارة الفيديوهات </a></li>
+                                <li><a href="<?= ROOT; ?>videos">إدارة الفيديوهات </a></li>
                             </ul>
                         </li>
                     <?php endif; ?>

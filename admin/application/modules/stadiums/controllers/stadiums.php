@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class videos extends MX_Controller {
+class Stadiums extends MX_Controller {
 
     public function __construct()
 	{
