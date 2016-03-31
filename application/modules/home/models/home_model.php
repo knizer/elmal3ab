@@ -7,22 +7,13 @@ class Home_model extends CI_Model {
         parent::__construct();
     }
 
-    // public function get_all($table, $A_OR_Z, $limit)
-    // {
-    //     $sql = "SELECT * FROM `$table` ORDER BY `id` $A_OR_Z LIMIT $limit";
-    //     $query = $this->db->query($sql);
-    //
-    //     return ($query->num_rows() >= 1) ? $query->result_array() : FALSE;
-    // }
+    public function get_featured_albums()
+    {
+        $sql = "SELECT * FROM `albums` INNER JOIN `featured_albums` on albums.id = featured_albums.album_id ORDER BY `album_id` DESC LIMIT 6";
+        $query = $this->db->query($sql);
 
-    // public function login($username, $password)
-    // {
-    //     $password = md5($password);
-    //     $sql = "SELECT * FROM `users` WHERE `username` = ? AND `password` = ?";
-    //     $query = $this->db->query($sql, array($username, $password));
-    //
-    //     return ($query->num_rows() >= 1) ? $query->row_array() : FALSE;
-    // }
+        return ($query->num_rows() >= 1) ? $query->result_array() : FALSE;
+    }
 
 }
 

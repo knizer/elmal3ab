@@ -43,7 +43,9 @@ define('CSS', ASSETS . 'css/');
 define('JS', ASSETS . 'js/');
 define('IMG', ASSETS . 'img/');
 define('FONTS', ASSETS . 'fonts/');
-define('UPLOADS', SITE_URL . 'uploads/');
+
+define('ADMIN', 'http://localhost/elmal3ab/admin/');
+define('UPLOADS', ADMIN . 'uploads/image_archive/647x471//');
 
 
 /* End of file constants.php */

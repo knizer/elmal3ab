@@ -59,7 +59,7 @@
                         ?>
                     </div>
                     <div class="col-md-62">
-                        <div id="list_count"><?php echo "تحتوى" . count($list_data) . " من 12"; ?></div>
+                        <div id="list_count"><?php echo "تحتوى" . count($list_data) . " من 6"; ?></div>
                     </div>
                     <div class="col-md-62" style="margin-top: 5px;">
 
@@ -113,7 +113,7 @@
                 $('.res').html("لديك أخبار مكررة من فضلك قم بحذفها وأعد المحاولة!");
 
             else
-                $('.res').html(" لقد تجاوزت العدد المسموح به لكل قائمة وهو 12 عنصر فقط!");
+                $('.res').html(" لقد تجاوزت العدد المسموح به لكل قائمة وهو 6 عنصر فقط!");
 
 
         });//--end post

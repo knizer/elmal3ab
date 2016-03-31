@@ -123,7 +123,7 @@ class Albums_featured extends MX_Controller {
         }
 
         //--delete old list elements
-        if ((count($arr) - 1) <= 12) {
+        if ((count($arr) - 1) <= 6) {
             if ($flag == 1)
                 $this->albumsfeatured_model->delOldData();
 

@@ -211,14 +211,18 @@
             <p class="circles-title">ألبومات الصور</p>
         </div>
         <div class="albums">
-            <div class="one-album">
-                <a href="#" class="one-album-btn">
-                    <span>ملعب شباب الجيزة</span>
-                    <span class="one-album-more">المزيد من الصور</span>
-                </a>
-                <img src="<?= IMG; ?>album1.jpg" style="width: 100%;">
-            </div>
-            <div class="one-album">
+            <?php if ( ! empty($featured_albums)): ?>
+                <?php foreach ($featured_albums as $featured_album): ?>
+                    <div class="one-album">
+                        <a href="<?= SITE_URL . "album/details/" .$featured_album['id']; ?>" class="one-album-btn">
+                            <span><?= $featured_album['title']; ?></span>
+                            <span class="one-album-more">المزيد من الصور</span>
+                        </a>
+                        <img src="<?= UPLOADS . $featured_album['main_image']; ?>" style="width: 100%;">
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <!-- <div class="one-album">
                 <a href="#" class="one-album-btn">
                     <span>ملعب شباب الجيزة</span>
                     <span class="one-album-more">المزيد من الصور</span>
@@ -252,7 +256,7 @@
                     <span class="one-album-more">المزيد من الصور</span>
                 </a>
                 <img src="<?= IMG; ?>album6.jpg" style="width: 100%;">
-            </div>
+            </div> -->
         </div>
     <div class="clear"></div>
 </section>

@@ -12,7 +12,8 @@ class Home extends CI_Controller {
     {
 		$data = array();
         $data['title'] = "الملعب";
-
+        $featured_albums = $this->home_model->get_featured_albums();
+        if ($featured_albums) $data['featured_albums'] = $featured_albums;
         $this->load->view('home_page_view', $data);
     }
 
