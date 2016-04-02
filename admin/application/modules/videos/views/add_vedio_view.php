@@ -243,10 +243,6 @@
                         }
                     }
                 });
-              /*  $( "#submit_form" ).submit(function( event ) {
-                    event.preventDefault();
-                });
-*/
                 // Ensure user chooses image
                 $("#insert-form").submit(function (e) {
                     if ( ! $("#video_img").val())

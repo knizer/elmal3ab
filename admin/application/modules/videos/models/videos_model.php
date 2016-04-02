@@ -78,7 +78,7 @@ class Videos_model extends CI_Model {
 
 	public function get_videos_list($start, $limit)
 	{
-		$query =$this->db->query("SELECT * FROM `videos` where deleted=0 order by id desc limit ".$start.",".$limit);
+		$query =$this->db->query("SELECT * FROM `videos` order by id desc limit ".$start.",".$limit);
 		return $query->result_array();
     }
 
