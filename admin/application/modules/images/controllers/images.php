@@ -33,7 +33,7 @@ class Images extends MX_Controller {
 		$per_page = 24;
 		$images_count = $this->common_model->get_table_rows_count("images");
 
-		$config["base_url"] = ROOT . "images/";
+		$config["base_url"] = site_url() . "images/";
 		$config['uri_segment'] = 2;
 		$config["total_rows"] = $images_count;
 		$config["per_page"] = $per_page;
@@ -49,7 +49,7 @@ class Images extends MX_Controller {
 		if (isset($_POST["submit"]))
 		{
 			$query = htmlspecialchars(trim($_POST["search"]));
-			redirect(ROOT . "images/search/$query");
+			redirect(site_url() . "images/search/$query");
 		}
 
 		$this->load->view("manage_images_view", $data);
@@ -58,7 +58,7 @@ class Images extends MX_Controller {
 
 	public function search($query = "")
 	{
-		if (empty($query)) redirect(ROOT . "images");
+		if (empty($query)) redirect(site_url() . "images");
 		$query = urldecode($query);
 
 		$data = array();
@@ -67,7 +67,7 @@ class Images extends MX_Controller {
 		$per_page = 24;
 		$images_count = $this->common_model->get_search_rows_count("images", "description", $query);
 
-		$config["base_url"] = ROOT . "images/search/$query";
+		$config["base_url"] = site_url() . "images/search/$query";
 		$config['uri_segment'] = 4;
 		$config["total_rows"] = $images_count;
 		$config["per_page"] = $per_page;
@@ -83,7 +83,7 @@ class Images extends MX_Controller {
 		if (isset($_POST["submit"]))
 		{
 			$query = htmlspecialchars(trim($_POST["search"]));
-			redirect(ROOT . "images/search/$query");
+			redirect(site_url() . "images/search/$query");
 		}
 
 		$this->load->view("manage_images_view", $data);
@@ -98,7 +98,7 @@ class Images extends MX_Controller {
 		$per_page = 36;
 		$images_count = $this->common_model->get_table_rows_count("images");
 
-		$config["base_url"] = ROOT . "images/list_images/";
+		$config["base_url"] = site_url() . "images/list_images/";
 		$config['uri_segment'] = 3;
 		$config["total_rows"] = $images_count;
 		$config["per_page"] = $per_page;
@@ -114,7 +114,7 @@ class Images extends MX_Controller {
 		if (isset($_POST["submit"]))
 		{
 			$query = htmlspecialchars(trim($_POST["search"]));
-			redirect(ROOT . "images/images_search/$query");
+			redirect(site_url() . "images/images_search/$query");
 		}
 
 		$this->load->view("list_images_view", $data);
@@ -123,7 +123,7 @@ class Images extends MX_Controller {
 
 	public function images_search($query = "")
 	{
-		if (empty($query)) redirect(ROOT . "images/list_images");
+		if (empty($query)) redirect(site_url() . "images/list_images");
 		$query = urldecode($query);
 
 		$data = array();
@@ -132,7 +132,7 @@ class Images extends MX_Controller {
 		$per_page = 20;
 		$images_count = $this->common_model->get_search_rows_count("images", "description", $query);
 
-		$config["base_url"] = ROOT . "images/images_search/$query";
+		$config["base_url"] = site_url() . "images/images_search/$query";
 		$config['uri_segment'] = 4;
 		$config["total_rows"] = $images_count;
 		$config["per_page"] = $per_page;
@@ -148,7 +148,7 @@ class Images extends MX_Controller {
 		if (isset($_POST["submit"]))
 		{
 			$query = htmlspecialchars(trim($_POST["search"]));
-			redirect(ROOT . "images/images_search/$query");
+			redirect(site_url() . "images/images_search/$query");
 		}
 
 		$this->load->view("list_images_view", $data);
@@ -361,7 +361,7 @@ class Images extends MX_Controller {
 					}
 
 					$this->session->set_flashdata("status", "تمت العملية بنجاح");
-					redirect(ROOT . "images");
+					redirect(site_url() . "images");
 				}
 				else
 				{
@@ -373,6 +373,7 @@ class Images extends MX_Controller {
 						$session_id = $_POST["session_id"];
 						$uploaded_by = $this->session->userdata("name");
 						$insert_id = $this->images_model->upload_image($image_name, $uploaded_by, $session_id);
+						$this->common_model->log_action($this->session->userdata("id"), $this->session->userdata("username"), "إضافة صورة", "image", $insert_id);
 					}
 					else
 					{
@@ -416,7 +417,7 @@ class Images extends MX_Controller {
 				$this->images_model->update_image_info($value, $watermarked, $image_id);
 			}
 
-			$redirect_path = ($version == "mini") ? ROOT . "images/list_images" : ROOT . "images";
+			$redirect_path = ($version == "mini") ? site_url() . "images/list_images" : site_url() . "images";
 			redirect($redirect_path);
 		}
 		else
@@ -503,7 +504,7 @@ class Images extends MX_Controller {
 			@unlink(IMG_ARCHIVE_PATH . "cache/original_lower_" . $image["name"]);
 
 			$this->session->set_flashdata("status", "تمت العملية بنجاح");
-			redirect(ROOT . "images");
+			redirect(site_url() . "images");
 		}
 
 		$this->load->view("edit_image_view", $data);
@@ -515,7 +516,7 @@ class Images extends MX_Controller {
 		$authorized = TRUE;
 		if ( ! isset($_POST["token"]))
 		{
-			$authorized = $this->common_model->authorized_to_view_page("images_albums");
+			$authorized = $this->common_model->authorized_to_view_page("delete_image");
 		}
 
 		if ($authorized)
@@ -526,6 +527,7 @@ class Images extends MX_Controller {
 			// Log action before deleting
 			$deleted_image_name = $image["name"];
 			$deleted_image_description = $image["description"];
+			$this->common_model->log_action($this->session->userdata("id"), $this->session->userdata("username"), "مسح صورة", "image", $id, $deleted_image_description);
 
 			// Delete from database
 			$this->common_model->delete_subject("images", "id", $id);
