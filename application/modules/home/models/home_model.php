@@ -7,6 +7,14 @@ class Home_model extends CI_Model {
         parent::__construct();
     }
 
+    public function get_latest($table, $orderd_by, $limit)
+    {
+        $sql = "SELECT * FROM `$table` ORDER BY `$orderd_by` DESC LIMIT $limit";
+        $query = $this->db->query($sql, array($table, $orderd_by, $limit));
+
+        return ($query->num_rows() >= 1) ? $query->result_array() : FALSE;
+    }
+
     public function get_featured_albums()
     {
         $sql = "SELECT * FROM `albums` INNER JOIN `featured_albums` on albums.id = featured_albums.album_id ORDER BY `album_id` DESC LIMIT 6";
@@ -17,11 +25,6 @@ class Home_model extends CI_Model {
 
 }
 
-// for rows
-// return ($query->num_rows() >= 1) ? $query->result_array() : FALSE;
-
-// for row
-// return ($query->num_rows() >= 1) ? $query->row_array() : FALSE;
 
 /* End of file login_model.php */
 /* Location: ./application/modules/home/models/login_model.php */

@@ -45,7 +45,11 @@ define('IMG', ASSETS . 'img/');
 define('FONTS', ASSETS . 'fonts/');
 
 define('ADMIN', 'http://localhost/elmal3ab/admin/');
-define('UPLOADS', ADMIN . 'uploads/image_archive/647x471//');
+define('IMAGE_ARCHIVE', ADMIN . 'uploads/image_archive/');
+define('LARGE_IMG', IMAGE_ARCHIVE . '647x471/');
+define('BIG_IMG', IMAGE_ARCHIVE . '622x307/');
+define('MID_IMG', IMAGE_ARCHIVE . '312x158/');
+define('SMALL_IMG', IMAGE_ARCHIVE . '279x305/');
 
 
 /* End of file constants.php */

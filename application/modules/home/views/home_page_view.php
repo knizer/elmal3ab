@@ -93,15 +93,13 @@
                 </div>
             </div>
             <div class="col-md-8 circle_news">
-                <div class="circle_new" style="background: transparent url('<?= IMG; ?>test.jpg') no-repeat center center;">
-                    <a href="#" class="circle_news_btn">روض الفرج</a>
-                </div>
-                <div class="circle_new" style="background: transparent url('<?= IMG; ?>test.jpg') no-repeat center center;">
-                    <a href="#" class="circle_news_btn">روض الفرج</a>
-                </div>
-                <div class="circle_new" style="background: transparent url('<?= IMG; ?>test.jpg') no-repeat center center;">
-                    <a href="#" class="circle_news_btn">روض الفرج</a>
-                </div>
+                <?php if ( ! empty($latest_stadiums)): ?>
+                    <?php foreach ($latest_stadiums as $latest_stadium): ?>
+                        <div class="circle_new" style="background: transparent url('<?= LARGE_IMG . $latest_stadium['image']; ?>') no-repeat center center;">
+                            <a href="#" class="circle_news_btn"><?= $latest_stadium['title']; ?></a>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif;?>
                 <div class="clear"></div>
             </div>
         </div>
@@ -218,45 +216,10 @@
                             <span><?= $featured_album['title']; ?></span>
                             <span class="one-album-more">المزيد من الصور</span>
                         </a>
-                        <img src="<?= UPLOADS . $featured_album['main_image']; ?>" style="width: 100%;">
+                        <img src="<?= LARGE_IMG . $featured_album['main_image']; ?>" style="width: 100%;">
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>
-            <!-- <div class="one-album">
-                <a href="#" class="one-album-btn">
-                    <span>ملعب شباب الجيزة</span>
-                    <span class="one-album-more">المزيد من الصور</span>
-                </a>
-                <img src="<?= IMG; ?>album2.jpg" style="width: 100%;">
-            </div>
-            <div class="one-album">
-                <a href="#" class="one-album-btn">
-                    <span>ملعب شباب الجيزة</span>
-                    <span class="one-album-more">المزيد من الصور</span>
-                </a>
-                <img src="<?= IMG; ?>album3.jpg" style="width: 100%;">
-            </div>
-            <div class="one-album">
-                <a href="#" class="one-album-btn">
-                    <span>ملعب شباب الجيزة</span>
-                    <span class="one-album-more">المزيد من الصور</span>
-                </a>
-                <img src="<?= IMG; ?>album4.jpg" style="width: 100%;">
-            </div>
-            <div class="one-album">
-                <a href="#" class="one-album-btn">
-                    <span>ملعب شباب الجيزة</span>
-                    <span class="one-album-more">المزيد من الصور</span>
-                </a>
-                <img src="<?= IMG; ?>album5.jpg" style="width: 100%;">
-            </div>
-            <div class="one-album">
-                <a href="#" class="one-album-btn">
-                    <span>ملعب شباب الجيزة</span>
-                    <span class="one-album-more">المزيد من الصور</span>
-                </a>
-                <img src="<?= IMG; ?>album6.jpg" style="width: 100%;">
-            </div> -->
         </div>
     <div class="clear"></div>
 </section>
