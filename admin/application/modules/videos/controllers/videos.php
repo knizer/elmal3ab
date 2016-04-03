@@ -127,6 +127,33 @@ class videos extends MX_Controller {
 		$this->load->view("list_videos_view", $data);
 	}
 
+    public function search($query = "")
+	{
+		if (empty($query)) redirect(ROOT . "videos");
+		$query = urldecode($query);
+		$data = array();
+		$current_page = (int) $this->uri->segment(4);
+		$per_page = 20;
+		$videos_count = $this->videos_model->count_search_data($query);
+		$config["base_url"] = ROOT . "videos/search/$query";
+		$config['uri_segment'] = 4;
+		$config["total_rows"] = $videos_count;
+		$config["per_page"] = $per_page;
+		$this->pagination->initialize($config);
+		$videos = $this->videos_model->search_videos("title", $query, $current_page, $per_page);
+		if ($videos)
+		{
+			$data["videos"] = $videos;
+			$data["pagination"] = $this->pagination->create_links();
+		}
+		if (isset($_POST["submit"]))
+		{
+			$query = htmlspecialchars(trim($_POST["search"]));
+			redirect(ROOT . "videos/search/$query");
+		}
+		$this->load->view("search_videos_view", $data);
+	}
+
     public function add()
 	{
 		$authorized = $this->common_model->authorized_to_view_page("videos");

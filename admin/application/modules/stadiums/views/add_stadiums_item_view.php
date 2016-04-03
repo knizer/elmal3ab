@@ -80,9 +80,7 @@
                             <div><button id="add_main_video_btn" class="btn btn-primary btn-font" type="button" style="margin-bottom: 10px; width: 150px;">إضافة فيديو رئيسي</button></div>
                             <input type="hidden" name="main_video" id="main_video" value="<?= @$_POST['main_video']; ?>" />
                             <div id="main-media-div">
-                                <?php if (isset($_POST["main_image"]) && ! empty($_POST["main_image"])): ?>
-                                    <img src="<?= IMG_ARCHIVE . '312x158/' . $_POST['main_image']; ?>" width="220" height="110">
-                                <?php elseif (isset($_POST["main_video"]) && ! empty($_POST["main_video"])): ?>
+                                <?php if (isset($_POST["main_video"]) && ! empty($_POST["main_video"])): ?>
                                     <?php
                                     $video_url = explode(':', $_POST['main_video']);
                                     $video_url_ = $video_url[1];
@@ -90,12 +88,6 @@
                                     <iframe frameborder="0" width="220" height="110" src="<?php if ($video_url[2] == 0): echo"https://www.youtube.com/embed/";
                                 else: echo"//www.dailymotion.com/embed/video/";
                                 endif; ?><?= $video_url_; ?>"></iframe>
-                                <?php elseif ( ! empty($_POST["main_album"]) && ! empty($_POST["main_album"])): ?>
-                                    <?php
-                                    $album = explode('&', $_POST['main_album']);
-                                    $album_img = $album[1];
-                                    ?>
-                                    <img src="<?= IMG_ARCHIVE . '312x158/' . $album_img; ?>" width="220" height="110">
                                 <?php endif; ?>
                             </div>
                         </div>

@@ -34,30 +34,30 @@
 								<?php if (isset($videos)): ?>
 								<?php foreach ($videos as $video_item): ?>
 									<tr>
-										<td><?= $video_item->id; ?></td>
+										<td><?= $video_item['id']; ?></td>
 										<td>
-											<img class="img-mang-arti" src="<?= IMG_ARCHIVE . "647x471/" . $video_item->image; ?>" />
+											<img class="img-mang-arti" src="<?= IMG_ARCHIVE . "647x471/" . $video_item['image']; ?>" />
 											<div class="des-sum-arti">
-												<p class="p-title-14"><?= $video_item->title; ?></p>
+												<p class="p-title-14"><?= $video_item['title']; ?></p>
                                                 <div style="width: 650px; height: 20px; overflow: hidden; float: right; display: table;">
-													<p class="sub-menus">كتب: <?= $video_item->author; ?></p>
-													<p class="sub-menus"> منذ: <?= $video_item->published_at; ?></p>
-                                                    <?php if ($video_item->published == 1): ?>
+													<p class="sub-menus">كتب: <?= $video_item['author']; ?></p>
+													<p class="sub-menus"> منذ: <?= $video_item['published_at']; ?></p>
+                                                    <?php if ($video_item['published'] == 1): ?>
         												<p class="p-title-14" style="color: green;margin-top:14px;">منشور</p>
-        											<?php elseif ($video_item->published == 0): ?>
+        											<?php elseif ($video_item['published'] == 0): ?>
         												<p class="p-title-14" style="color: red;margin-top:14px;">غير منشور</p>
         											<?php endif; ?>
                                                 </div>
 											</div>
 										</td>
 										<td>
-											<a onclick="viewInModal('videos/view/<?= $video_item->id; ?>');" href="javascript:void(null);">
+											<a onclick="viewInModal('videos/view/<?= $video_item['id']; ?>');" href="javascript:void(null);">
 												<button class="btn btn-primary btn-font tables-full-width-btn" data-toggle="modal" data-target=".bs-example-modal-lg" type="button"> التفاصيل</button>
 											</a>
-											<a href="<?= ROOT; ?>videos/edit/<?= $video_item->id; ?>">
+											<a href="<?= ROOT; ?>videos/edit/<?= $video_item['id']; ?>">
 												<button class="btn btn-warning btn-font new-width" type="button">تعديل</button>
 											</a>
-											<a onclick="alertDelete('videos/delete/<?= $video_item->id; ?>', 'هل أنت متأكد من حذف هذا الفيديو؟');" href="javascript:void(null);">
+											<a onclick="alertDelete('videos/delete/<?= $video_item['id']; ?>', 'هل أنت متأكد من حذف هذا الفيديو؟');" href="javascript:void(null);">
 												<button class="btn btn-danger btn-font new-width" type="button" >حذف</button>
 											</a>
 										</td>
@@ -68,7 +68,7 @@
 							</tbody>
 						</table>
 						<div class="pagination-news">
-                            <?= $paging; ?>
+                            <?= $pagination; ?>
                         </div>
 					</div>
 
