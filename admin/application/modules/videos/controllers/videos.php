@@ -100,39 +100,32 @@ class videos extends MX_Controller {
 	}
 
 
-	public function videos_search($query = "")
+    public function videos_search($query = "")
 	{
 		if (empty($query)) redirect(ROOT . "videos/list_videos");
 		$query = urldecode($query);
-
 		$data = array();
-
 		$current_page = (int) $this->uri->segment(4);
 		$per_page = 20;
 		$videos_count = $this->videos_model->count_search_data($query);
-
 		$config["base_url"] = ROOT . "videos/videos_search/$query";
 		$config['uri_segment'] = 4;
 		$config["total_rows"] = $videos_count;
 		$config["per_page"] = $per_page;
 		$this->pagination->initialize($config);
-
 		$videos = $this->videos_model->search_videos("title", $query, $current_page, $per_page);
 		if ($videos)
 		{
 			$data["videos"] = $videos;
 			$data["pagination"] = $this->pagination->create_links();
 		}
-
 		if (isset($_POST["submit"]))
 		{
 			$query = htmlspecialchars(trim($_POST["search"]));
 			redirect(ROOT . "videos/videos_search/$query");
 		}
-
 		$this->load->view("list_videos_view", $data);
 	}
-
 
     public function add()
 	{
@@ -181,7 +174,7 @@ class videos extends MX_Controller {
 		if ($authorized)
 		{
 			$video = $this->videos_model->retrieveCustomDatabyID('videos',$id);
-			$data['video'] = $video[0];
+			$data['video'] = $video;
 			$this->load->view("video_view", $data);
 		}
 	}

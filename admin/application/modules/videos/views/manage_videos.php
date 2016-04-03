@@ -16,7 +16,7 @@
 
 					   <div class="col-md-5" >
 						<form class="search" id="search_by" style="  margin-top: -2%;margin-left: 800px;">
-							<input type="text" class="serch_txt" name="search" value="<?php if (!is_numeric($this->uri->segment(3))) echo urldecode($this->uri->segment(3)) ?>" placeholder="بحث" />
+							<input type="text" class="serch_txt" name="search" value="" placeholder="بحث" />
 							<button type="submit"><i class="fa fa-search"></i></button>
 						</form>
 					</div>

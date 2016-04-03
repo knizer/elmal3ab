@@ -9383,3 +9383,5 @@ del img, del iframe {display: none;}
     font-family: 'font_bo';
     text-align: center;
 }
+.inline-form2{width: 49%;float: right;margin-left: 2%}
+.inline-form2:nth-child(2){margin-left: 0px;}
