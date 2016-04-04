@@ -14,13 +14,8 @@
 				<?php if (isset($albums)): ?>
 				<?php foreach ($albums as $album): ?>
 					<div class="archive-img-div" style="margin-bottom: 25px;">
-						<?php if ($album['old_album'] == 0): ?>
-							<img class="archive-img" src="<?= IMG_ARCHIVE . '622x307/' . $album['main_image'] . '?' . filemtime(IMG_ARCHIVE_PATH . '622x307/' . $album['main_image']); ?>"
-								 width="180" height="100" id="<?= $album['id']; ?>&<?= $album['main_image']; ?>" />
-						<?php else: ?>
-							<img class="archive-img" src="<?= OLD_IMG_ARCHIVE . $album['main_image'] . '?' . filemtime(IMG_ARCHIVE_PATH . '622x307/' . $album['main_image']); ?>"
-								 width="180" height="100" id="<?= $album['id']; ?>&<?= $album['main_image']; ?>" />
-						<?php endif; ?>
+                        <img class="archive-img" src="<?= SMALL_IMG . $album['main_image'] . '?' . filemtime(SMALL_IMG_PATH . $album['main_image']); ?>"
+                        width="180" height="100" id="<?= $album['id']; ?>&<?= $album['main_image']; ?>" />
 						<div>
 							<span style="margin: 0px 6px;" title="<?= $album['title']; ?>"><?= trim(mb_substr($album["title"], 0, 16, "utf-8")); ?></span>|<span style="float: left; margin: 0px 6px;">منذ: <?= $album["created_at"]; ?></span>
 						</div>

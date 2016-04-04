@@ -17,7 +17,7 @@
 				<?php if (isset($images)): ?>
 				<?php foreach ($images as $image): ?>
 					<div class="archive-img-div" style="margin-bottom: 25px; position: relative;">
-                        <img src="<?= IMG_ARCHIVE . '279x305/' . $image['name'] . '?' . @filemtime(IMG_ARCHIVE_PATH . '279x305/' . $image['name']); ?>"
+                        <img src="<?= SMALL_IMG . $image['name'] . '?' . @filemtime(SMALL_IMG_PATH . $image['name']); ?>"
 							 id="<?= $image['id']; ?>&<?= $image['name']; ?>"/>
 						<div>
 							<span style="margin: 0px 6px;" title="<?= $image['description']; ?>"><?= mb_substr($image["description"], 0, 6, "utf-8"); ?></span>|<span style="float: left; margin: 0px 6px;">منذ: <?= $image["uploaded_at"]; ?></span>

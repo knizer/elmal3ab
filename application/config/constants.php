@@ -49,7 +49,7 @@ define('IMAGE_ARCHIVE', ADMIN . 'uploads/image_archive/');
 define('LARGE_IMG', IMAGE_ARCHIVE . '647x471/');
 define('BIG_IMG', IMAGE_ARCHIVE . '622x307/');
 define('MID_IMG', IMAGE_ARCHIVE . '400x400/');
-define('SMALL_IMG', IMAGE_ARCHIVE . '279x305/');
+define('SMALL_IMG', IMAGE_ARCHIVE . '312x158/');
 
 
 /* End of file constants.php */

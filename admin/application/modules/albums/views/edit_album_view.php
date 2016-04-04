@@ -35,7 +35,7 @@
 											<?php foreach ($album_images as $image): ?>
 												<div class="album-img">
 													<button type="button" class="fa fa-remove remove-img-btn" onclick="remove_image_from_album(this);"></button>
-													<img src="<?= IMG_ARCHIVE . '622x307/' . $image['image_name']; ?>" class="edit-album-img"
+													<img src="<?= SMALL_IMG . $image['image_name']; ?>" class="edit-album-img"
 														 id="<?= $image['image_id']; ?>&<?= $image['image_name']; ?>" width="185" height="110"
 														 onclick="select_as_main_image(this);"
 													<?php if ($image["image_name"] == $album["main_image"]) echo "style='opacity: 0.5; border: 2px solid red;'"; ?> />
@@ -88,7 +88,7 @@
 				images_window = window.open("<?= ROOT; ?>images/list_images", "_blank", "toolbar=yes, scrollbars=yes, top=0, left=0, width=1050, height=" + window.innerHeight);
 				var timer = setInterval(check_window_close, 500);
 
-				images_path = "<?= IMG_ARCHIVE . '622x307/'; ?>";
+				images_path = "<?= SMALL_IMG; ?>";
 
 				function check_window_close() {
 					image = images_window.document.title;

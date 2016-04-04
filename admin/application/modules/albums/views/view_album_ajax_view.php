@@ -33,17 +33,10 @@
 		<?php if (isset($album_images)): ?>
 			<div>
 			<?php foreach ($album_images as $image): ?>
-				<?php if ($album['old_album'] == 0): ?>
-					<img src="<?= IMG_ARCHIVE . '622x307/' . $image['image_name']; ?>"
-						 style="width: 153px; height: 110px; float: right; margin-left: 10px;
-								margin-bottom: 10px; <?php if ($image["image_name"] == $album["main_image"]) echo "opacity: 0.5; border: 2px solid red;"; ?>"
-								<?php if ($image["image_name"] == $album["main_image"]) echo "title='الصورة الرئيسية'"; ?> />
-				<?php else: ?>
-					<img src="<?= OLD_IMG_ARCHIVE . $image['image_name']; ?>"
-						 style="width: 153px; height: 110px; float: right; margin-left: 10px;
-								margin-bottom: 10px; <?php if ($image["image_name"] == $album["main_image"]) echo "opacity: 0.5; border: 2px solid red;"; ?>"
-								<?php if ($image["image_name"] == $album["main_image"]) echo "title='الصورة الرئيسية'"; ?> />
-				<?php endif; ?>
+                <img src="<?= SMALL_IMG . $image['image_name']; ?>"
+                style="width: 153px; height: 110px; float: right; margin-left: 10px;
+                margin-bottom: 10px; <?php if ($image["image_name"] == $album["main_image"]) echo "opacity: 0.5; border: 2px solid red;"; ?>"
+                    <?php if ($image["image_name"] == $album["main_image"]) echo "title='الصورة الرئيسية'"; ?> />
 			<?php endforeach; ?>
 			</div>
 		<?php else: ?>

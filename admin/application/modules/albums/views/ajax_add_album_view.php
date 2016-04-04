@@ -46,7 +46,7 @@
 					$("#uploaded-images").html("");
 
 					response = JSON.parse(response);
-					var imagesPath = "<?= IMG_ARCHIVE . '622x307/'; ?>";
+					var imagesPath = "<?= SMALL_IMG; ?>";
 					var newImages = "";
 					for (var i = 0; i < response.length; i++)
 					{

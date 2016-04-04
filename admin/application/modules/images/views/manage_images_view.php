@@ -23,7 +23,7 @@
 				<?php if (isset($images)): ?>
 				<?php foreach ($images as $image): ?>
 					<div class="archive-img-div">
-						<img class="archive-img" src="<?= IMG_ARCHIVE . '622x307/' . $image['name'] . '?' . @filemtime(IMG_ARCHIVE_PATH . '622x307/' . $image['name']); ?>"
+						<img class="archive-img" src="<?= SMALL_IMG . $image['name'] . '?' . @filemtime(SMALL_IMG_PATH . $image['name']); ?>"
 							 style="width: 210px; height: 120px;" data-toggle="modal" data-target=".bs-example-modal-lg"
 							 onclick="viewInModal('images/view/<?= $image['id']; ?>');" href="javascript:void(null);" />
 						<div title="<?= $image['description']; ?>">

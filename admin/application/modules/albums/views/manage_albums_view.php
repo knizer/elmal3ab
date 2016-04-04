@@ -37,7 +37,7 @@
 								<tr>
 									<td><?= $album["id"]; ?></td>
 									<td class="tables-padded-td">
-										<img src="<?= IMG_ARCHIVE . '622x307/' . $album['main_image']; ?>" alt="<?= $album['title']; ?>"
+										<img src="<?= SMALL_IMG . $album['main_image']; ?>" alt="<?= $album['title']; ?>"
 											 style="width: 200px; height: 120px; float: right; margin-top: 15px; margin-left: 25px;" />
 										<div style="float: right; width: 70%;">
 											<h3><?= $album["title"]; ?></h3>

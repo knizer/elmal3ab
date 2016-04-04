@@ -21,7 +21,7 @@ class Images extends MX_Controller {
 			"647x471" => "watermark_on",
 			"622x307" => "watermark_on",
 			"400x400" => "watermark_off",
-			"279x305" => "watermark_off"
+			"312x158" => "watermark_off"
 		);
     }
 
@@ -34,7 +34,7 @@ class Images extends MX_Controller {
 		$per_page = 24;
 		$images_count = $this->common_model->get_table_rows_count("images");
 
-		$config["base_url"] = site_url() . "images/";
+		$config["base_url"] = ROOT . "images/";
 		$config['uri_segment'] = 2;
 		$config["total_rows"] = $images_count;
 		$config["per_page"] = $per_page;
@@ -50,7 +50,7 @@ class Images extends MX_Controller {
 		if (isset($_POST["submit"]))
 		{
 			$query = htmlspecialchars(trim($_POST["search"]));
-			redirect(site_url() . "images/search/$query");
+			redirect(ROOT . "images/search/$query");
 		}
 
 		$this->load->view("manage_images_view", $data);
@@ -59,7 +59,7 @@ class Images extends MX_Controller {
 
 	public function search($query = "")
 	{
-		if (empty($query)) redirect(site_url() . "images");
+		if (empty($query)) redirect(ROOT . "images");
 		$query = urldecode($query);
 
 		$data = array();
@@ -68,7 +68,7 @@ class Images extends MX_Controller {
 		$per_page = 24;
 		$images_count = $this->common_model->get_search_rows_count("images", "description", $query);
 
-		$config["base_url"] = site_url() . "images/search/$query";
+		$config["base_url"] = ROOT . "images/search/$query";
 		$config['uri_segment'] = 4;
 		$config["total_rows"] = $images_count;
 		$config["per_page"] = $per_page;
@@ -84,7 +84,7 @@ class Images extends MX_Controller {
 		if (isset($_POST["submit"]))
 		{
 			$query = htmlspecialchars(trim($_POST["search"]));
-			redirect(site_url() . "images/search/$query");
+			redirect(ROOT . "images/search/$query");
 		}
 
 		$this->load->view("manage_images_view", $data);
@@ -99,7 +99,7 @@ class Images extends MX_Controller {
 		$per_page = 36;
 		$images_count = $this->common_model->get_table_rows_count("images");
 
-		$config["base_url"] = site_url() . "images/list_images/";
+		$config["base_url"] = ROOT . "images/list_images/";
 		$config['uri_segment'] = 3;
 		$config["total_rows"] = $images_count;
 		$config["per_page"] = $per_page;
@@ -115,7 +115,7 @@ class Images extends MX_Controller {
 		if (isset($_POST["submit"]))
 		{
 			$query = htmlspecialchars(trim($_POST["search"]));
-			redirect(site_url() . "images/images_search/$query");
+			redirect(ROOT . "images/images_search/$query");
 		}
 
 		$this->load->view("list_images_view", $data);
@@ -124,7 +124,7 @@ class Images extends MX_Controller {
 
 	public function images_search($query = "")
 	{
-		if (empty($query)) redirect(site_url() . "images/list_images");
+		if (empty($query)) redirect(ROOT . "images/list_images");
 		$query = urldecode($query);
 
 		$data = array();
@@ -133,7 +133,7 @@ class Images extends MX_Controller {
 		$per_page = 20;
 		$images_count = $this->common_model->get_search_rows_count("images", "description", $query);
 
-		$config["base_url"] = site_url() . "images/images_search/$query";
+		$config["base_url"] = ROOT . "images/images_search/$query";
 		$config['uri_segment'] = 4;
 		$config["total_rows"] = $images_count;
 		$config["per_page"] = $per_page;
@@ -149,7 +149,7 @@ class Images extends MX_Controller {
 		if (isset($_POST["submit"]))
 		{
 			$query = htmlspecialchars(trim($_POST["search"]));
-			redirect(site_url() . "images/images_search/$query");
+			redirect(ROOT . "images/images_search/$query");
 		}
 
 		$this->load->view("list_images_view", $data);
@@ -362,7 +362,7 @@ class Images extends MX_Controller {
 					}
 
 					$this->session->set_flashdata("status", "تمت العملية بنجاح");
-					redirect(site_url() . "images");
+					redirect(ROOT . "images");
 				}
 				else
 				{
@@ -417,7 +417,7 @@ class Images extends MX_Controller {
 				$this->images_model->update_image_info($value, $watermarked, $image_id);
 			}
 
-			$redirect_path = ($version == "mini") ? site_url() . "images/list_images" : site_url() . "images";
+			$redirect_path = ($version == "mini") ? ROOT . "images/list_images" : ROOT . "images";
 			redirect($redirect_path);
 		}
 		else
@@ -504,7 +504,7 @@ class Images extends MX_Controller {
 			@unlink(IMG_ARCHIVE_PATH . "cache/original_lower_" . $image["name"]);
 
 			$this->session->set_flashdata("status", "تمت العملية بنجاح");
-			redirect(site_url() . "images");
+			redirect(ROOT . "images");
 		}
 
 		$this->load->view("edit_image_view", $data);
