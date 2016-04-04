@@ -373,7 +373,6 @@ class Images extends MX_Controller {
 						$session_id = $_POST["session_id"];
 						$uploaded_by = $this->session->userdata("name");
 						$insert_id = $this->images_model->upload_image($image_name, $uploaded_by, $session_id);
-						$this->common_model->log_action($this->session->userdata("id"), $this->session->userdata("username"), "إضافة صورة", "image", $insert_id);
 					}
 					else
 					{
@@ -523,11 +522,6 @@ class Images extends MX_Controller {
 		{
 			$image = $this->common_model->get_subject_with_token("images", "id", $id);
 			if (empty($id) OR ! $image OR $image["times_used"] > 0) show_404();
-
-			// Log action before deleting
-			$deleted_image_name = $image["name"];
-			$deleted_image_description = $image["description"];
-			$this->common_model->log_action($this->session->userdata("id"), $this->session->userdata("username"), "مسح صورة", "image", $id, $deleted_image_description);
 
 			// Delete from database
 			$this->common_model->delete_subject("images", "id", $id);

@@ -44,7 +44,7 @@ define('IMG_ARCHIVE', UPLOADS . 'image_archive/');
 define('USER_PHOTOS', UPLOADS . 'user_photos/');
 
 // Important Uploads server paths
-define('UPLOADS_PATH', ROOT . 'uploads/');
+define('UPLOADS_PATH', $_SERVER['DOCUMENT_ROOT'] . 'elmal3ab/admin/uploads/');
 define('IMG_ARCHIVE_PATH', UPLOADS_PATH . 'image_archive/');
 define('USER_PHOTOS_PATH', UPLOADS_PATH . 'user_photos/');
 
