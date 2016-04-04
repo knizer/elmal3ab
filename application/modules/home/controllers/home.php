@@ -22,6 +22,38 @@ class Home extends CI_Controller {
         $this->load->view('home_page_view', $data);
     }
 
+    public function login()
+    {
+        $this->load->library('facebook');
+        $user = $this->facebook->getUser();
+
+        if ($user)
+        {
+            $user_profile = $this->facebook->api('/me');
+            $this->session->set_userdata('logged_in', TRUE);
+            $this->session->set_userdata('user_id', $user_profile['id']);
+            $this->session->set_userdata('user_name', $user_profile['name']);
+            redirect(SITE_URL);
+        }
+        else
+        {
+            $login_url = $this->facebook->getLoginUrl(array(
+                'redirect_uri' => SITE_URL . 'login',
+                'scope' => array("email")
+            ));
+            redirect($login_url);
+            $this->facebook->destroySession();
+        }
+    }
+
+    public function logout()
+    {
+        $this->load->library('facebook');
+        $this->facebook->destroySession();
+        $this->session->sess_destroy();
+        redirect(SITE_URL);
+    }
+
 }
 
 

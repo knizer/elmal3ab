@@ -658,7 +658,7 @@ header {
           display: block;
     }
         header ul.primary-nav li a:hover {
-          color: #FF5274; }
+          color: #ECDFB1;}
       header ul.primary-nav li:last-child a {
         padding-right: 0px; }
   header ul.member-actions li {
@@ -1503,3 +1503,39 @@ label.star:before {
     margin-top: 11px;
     display: none;
 }
+.login-fb{
+    float: right;
+    width: 130px;
+    background: rgb(73, 101, 160) none repeat scroll 0% 0%;
+    height: 25px;
+    overflow: hidden;
+    margin-right: 24px;
+    padding-top: 1px;
+    font-size: 18px;
+    padding-left: 12px;
+}
+.login-fb span{
+    font-size: 14px;
+    float: right;
+    padding-right: 13px;
+    padding-top: 0px;
+    font-family: arial;
+    font-weight: bold;
+}
+.login-fb-username{
+    float: right;
+    color: #fff;
+    margin: 0 10px 0 0;
+    padding: 0;
+}
+.login-fb-img{
+    float: right;
+width: 40px;
+overflow: hidden;
+height: 27px;
+}
+.login-fb-img img{
+    width: 100%;
+}
+
+.nav-a-active{color: #ECDFB1;}

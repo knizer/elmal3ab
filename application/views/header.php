@@ -31,6 +31,17 @@
                         </form>
                     </div>
                 </div>
+                <form class="form-signin" role="form">
+                    <?php if ($this->session->userdata('logged_in')): ?>
+                        <a class="login-fb" href="<?= SITE_URL . "logout" ?>"><i class="fa fa-facebook-official"></i><span>تسجيل الخروج</span></a>
+                        <p class="login-fb-username"><?= $this->session->userdata('user_name'); ?></p>
+                        <!-- <div class="login-fb-img">
+                            <img data-src="holder.js/140x140" alt="140x140" src="https://graph.facebook.com/<?= $this->session->userdata('user_id'); ?>/picture?type=large">
+                        </div> -->
+                    <?php else: ?>
+                        <a class="login-fb" href="<?= SITE_URL . 'login' ?>"><i class="fa fa-facebook-official"></i><span>تسجيل الدخول</span></a>
+                    <?php endif; ?>
+                </form>
                 <div class="clear"></div>
             </header>
             <div class="clear"></div>

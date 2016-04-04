@@ -73,6 +73,12 @@
             $( this ).find(".one-album-more").css("display", "none");
         });
         /*albums*/
+
+        /*test*/
+        $(".primary-nav li").find("a[href='"+window.location.href+"']").each(function(){
+            $(this).addClass("nav-a-active");
+        });
+        /*test*/
     });
 </script>
 </body>
