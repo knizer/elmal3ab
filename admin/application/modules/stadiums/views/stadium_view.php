@@ -28,7 +28,7 @@
         		</h4>
             </div>
         	<div class="col-md-62" style="position: relative; left: 14px;">
-    			<img src="<?= IMG_ARCHIVE_PATH . "312x158/" . $stadium['image']; ?>">
+    			<img src="<?= MID_IMG . $stadium['image']; ?>">
             </div>
     <?php endif; ?>
 	</div>

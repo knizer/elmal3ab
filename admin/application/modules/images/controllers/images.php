@@ -20,6 +20,7 @@ class Images extends MX_Controller {
 		$this->image_sizes = array(
 			"647x471" => "watermark_on",
 			"622x307" => "watermark_on",
+			"400x400" => "watermark_off",
 			"279x305" => "watermark_off"
 		);
     }

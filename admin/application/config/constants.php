@@ -41,12 +41,17 @@ define('ROOT', 'http://localhost/elmal3ab/admin/');
 define('ASSETS', ROOT . 'assets/');
 define('UPLOADS', ROOT . 'uploads/');
 define('IMG_ARCHIVE', UPLOADS . 'image_archive/');
+define('LARGE_IMG', IMG_ARCHIVE . '647x471/');
+define('BIG_IMG', IMG_ARCHIVE . '622x307/');
+define('MID_IMG', IMG_ARCHIVE . '400x400/');
+define('SMALL_IMG', IMG_ARCHIVE . '279x305/');
 define('USER_PHOTOS', UPLOADS . 'user_photos/');
 
 // Important Uploads server paths
 define('UPLOADS_PATH', $_SERVER['DOCUMENT_ROOT'] . 'elmal3ab/admin/uploads/');
 define('IMG_ARCHIVE_PATH', UPLOADS_PATH . 'image_archive/');
 define('USER_PHOTOS_PATH', UPLOADS_PATH . 'user_photos/');
+
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
