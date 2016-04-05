@@ -109,7 +109,7 @@ swal('برجاء الدخول لصفحة الملعب ..!');
                 <?php if ( ! empty($latest_stadiums)): ?>
                     <?php foreach ($latest_stadiums as $latest_stadium): ?>
                         <div class="circle_new" style="background: transparent url('<?= LARGE_IMG . $latest_stadium['image']; ?>') no-repeat center center;">
-                            <a href="#" class="circle_news_btn"><?= $latest_stadium['title']; ?></a>
+                            <a href="<?= SITE_URL . "stadium/details/" . $latest_stadium['id']; ?>" class="circle_news_btn"><?= $latest_stadium['title']; ?></a>
                         </div>
                     <?php endforeach; ?>
                 <?php endif;?>
@@ -130,7 +130,7 @@ swal('برجاء الدخول لصفحة الملعب ..!');
                 <?php foreach ($stadiums_high_rate as $stadium_high_rate): ?>
                     <div class="one-stad">
                         <div class="best-stad">
-                            <img class="best-stad-img" src="<?= MID_IMG . $stadium_high_rate['image']; ?>" />
+                            <a href="<?= SITE_URL . "stadium/details/" . $stadium_high_rate['id']; ?>"><img class="best-stad-img" src="<?= MID_IMG . $stadium_high_rate['image']; ?>" /></a>
                         </div>
                         <div class="stars">
                             <?php
