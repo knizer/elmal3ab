@@ -20,6 +20,11 @@
                                    value="<?= $stadiums_item["title"]; ?>" required autofocus />
                         </div>
                         <div class="inline-form">
+                            <label class="c-label">تفاصيل الملعب *</label>
+                            <input type="text" name="description"
+                                   value="<?= $stadiums_item["description"]; ?>" required autofocus />
+                        </div>
+                        <div class="inline-form">
                             <label class="c-label">عنوان الملعب *</label>
                             <input type="text" name="address"
                                    value="<?= $stadiums_item["address"]; ?>" required />

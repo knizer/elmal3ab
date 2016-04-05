@@ -8,6 +8,28 @@ class Home extends CI_Controller {
         $this->load->model('home_model');
     }
 
+    // for any variable average
+    private function average($avr_array)
+    {
+        if($avr_array)
+        {
+            $rate = array();
+            foreach($avr_array as $value)
+            {
+                foreach($value as $key => $number)
+                {
+                    (!isset($res[$key])) ? $res[$key] = $number : $res[$key] += $number;
+                }
+            }
+            $average =  round($res['rate'] / count($avr_array));
+            return "$average";
+        }
+        else
+        {
+            return "0";
+        }
+    }
+
     public function index()
     {
 		$data = array();
@@ -18,6 +40,9 @@ class Home extends CI_Controller {
 
         $featured_albums = $this->home_model->get_featured_albums();
         if ($featured_albums) $data['featured_albums'] = $featured_albums;
+
+        $stadiums_high_rate = $this->home_model->get_stadiums_high_rates();
+        if ($stadiums_high_rate) $data['stadiums_high_rate'] = $stadiums_high_rate;
 
         $this->load->view('home_page_view', $data);
     }

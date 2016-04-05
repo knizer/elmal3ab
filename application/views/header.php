@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="<?= CSS; ?>bootstrap.min.css">
     <link rel="stylesheet" href="<?= CSS; ?>media_queries.css">
     <link rel="stylesheet" href="<?= CSS; ?>font-awesome.min.css">
+    <link rel="stylesheet" href="<?= CSS; ?>sweetalert.css">
     <script src="<?= JS; ?>jquery.min.js"></script>
     <script src="<?= JS; ?>bootstrap.min.js"></script>
+    <script src="<?= JS; ?>sweetalert.min.js"></script>
 </head>
 <body>
     <section class="navigation" id="navbar">

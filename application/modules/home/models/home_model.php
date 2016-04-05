@@ -23,6 +23,16 @@ class Home_model extends CI_Model {
         return ($query->num_rows() >= 1) ? $query->result_array() : FALSE;
     }
 
+    public function get_stadiums_high_rates()
+    {
+        $sql = "SELECT stadiums.id,stadiums.title, stadiums.description, stadiums.image, avg(stadiums_rate.rate) as avg FROM `stadiums`
+        	   INNER JOIN `stadiums_rate` ON `stadiums`.id=`stadiums_rate`.stadium_id group by stadiums_rate.stadium_id order by avg DESC LIMIT 3";
+
+        $query = $this->db->query($sql);
+
+        return ($query->num_rows() >= 1) ? $query->result_array() : FALSE;
+    }
+
 }
 
 

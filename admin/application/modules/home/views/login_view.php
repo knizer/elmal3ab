@@ -8,7 +8,7 @@
                     <div class="form-body login-padding">
                         <div class="col-md-12 text-center">
                             <h1 style="margin-top: 0px; font-size:42px; text-transform:uppercase; letter-spacing:-1px; color:#000; font-weight:bold">
-                                <a style="color:#000;"><img src="http://admin.aswatmasriya.com/assets/images/logo_big.png" alt="LOGO" class=""/></a></h1>
+                                <a style="color:#000;"><img src="" alt="LOGO" class=""/></a></h1>
                             <br />
                         </div>
                         <div class="form-group">

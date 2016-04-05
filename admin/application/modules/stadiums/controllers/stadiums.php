@@ -82,6 +82,7 @@ class Stadiums extends CI_Controller {
     		{
                 $user_id = $this->session->userdata("id");
     			$title = htmlspecialchars(trim($_POST["title"]));
+    			$description = htmlspecialchars(trim($_POST["description"]));
     			$address = htmlspecialchars(trim($_POST["address"]));
     			$phone = htmlspecialchars(trim($_POST["phone"]));
     			$workhours_from = htmlspecialchars(trim($_POST["workhours_from_time"] . ':' . $_POST["workhours_from"]));
@@ -109,7 +110,7 @@ class Stadiums extends CI_Controller {
     			}
                 else
                 {
-					$this->stadiums_model->add_stadiums_item($user_id, $title, $address, $phone, $workhours_from, $workhours_to,
+					$this->stadiums_model->add_stadiums_item($user_id, $title, $description, $address, $phone, $workhours_from, $workhours_to,
                                                              $ground_type, $hour_price, $image, $video_link, $published);
 					$this->session->set_flashdata("status", "تمت العملية بنجاح");
 					redirect(ROOT . "stadiums");
@@ -132,6 +133,7 @@ class Stadiums extends CI_Controller {
 			$success = FALSE;
             $user_id = $this->session->userdata("id");
             $title = htmlspecialchars(trim($_POST["title"]));
+            $description = htmlspecialchars(trim($_POST["description"]));
             $address = htmlspecialchars(trim($_POST["address"]));
             $phone = htmlspecialchars(trim($_POST["phone"]));
             $workhours_from = htmlspecialchars(trim($_POST["workhours_from_time"] . ':' . $_POST["workhours_from"]));
@@ -165,7 +167,7 @@ class Stadiums extends CI_Controller {
 
 				if ($success)
 				{
-					$this->stadiums_model->update_stadiums_item($title, $address, $phone, $workhours_from, $workhours_to,
+					$this->stadiums_model->update_stadiums_item($title, $description, $address, $phone, $workhours_from, $workhours_to,
                                                                 $ground_type, $hour_price, $image, $video_link, $published, $published_here,
                                                                 $unpublished_here, $id);
 					$this->session->set_flashdata("status", "تمت العملية بنجاح");

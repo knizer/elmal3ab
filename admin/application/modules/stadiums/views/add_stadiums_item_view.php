@@ -20,6 +20,11 @@
                                    value="<?= trim(@$_POST["title"]); ?>" required autofocus />
                         </div>
                         <div class="inline-form">
+                            <label class="c-label">تفاصيل الملعب *</label>
+                            <input type="text" name="description"
+                                   value="<?= trim(@$_POST["description"]); ?>" required autofocus />
+                        </div>
+                        <div class="inline-form">
                             <label class="c-label">عنوان الملعب *</label>
                             <input type="text" name="address"
                                    value="<?= trim(@$_POST["address"]); ?>" required />

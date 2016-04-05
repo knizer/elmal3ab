@@ -26,6 +26,11 @@
                         <span class="fon-rg-ba" style="color: green;">منشور</span>
                     <?php endif; ?>
         		</h4>
+                <h4>
+                    <span class="fon-bo-ba">التفاصيل:</span>
+                    <span class="fon-rg-ba"><?= $stadium['description']; ?></span>
+                </h4>
+                <h4>
             </div>
         	<div class="col-md-62" style="position: relative; left: 14px;">
     			<img src="<?= MID_IMG . $stadium['image']; ?>">
