@@ -7,43 +7,43 @@ class Stadiums_model extends CI_Model {
         parent::__construct();
     }
 
-    public function add_stadiums_item($user_id, $title,$description, $address, $phone, $workhours_from, $workhours_to,
-                                      $ground_type, $hour_price, $image, $video_link, $published)
+    public function add_stadiums_item($user_id, $title, $description, $address, $phone, $workhours_from, $workhours_to,
+                                      $ground_type, $hour_price, $image, $main_album, $video_link, $published)
     {
         $published_by_id = ($published == 1) ? $user_id : 0;
 		$published_at = ($published == 1) ? date("Y-m-d H:i:s") : NULL;
         $sql = "INSERT INTO `stadiums` (`user_id`, `title`, `description`, `address`, `phone`, `workhours_from`, `workhours_to`,
-                                        `ground_type`, `hour_price`, `image`, `video_link`, `published`, `published_by_id`, `published_at`)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                                        `ground_type`, `hour_price`, `image`, `main_album`, `video_link`, `published`, `published_by_id`, `published_at`)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $this->db->query($sql, array($user_id, $title, $description, $address, $phone, $workhours_from, $workhours_to,
-                                     $ground_type, $hour_price, $image, $video_link, $published, $published_by_id,
+                                     $ground_type, $hour_price, $image, $main_album, $video_link, $published, $published_by_id,
                                      $published_at));
     }
 
 	public function update_stadiums_item($title, $description, $address, $phone, $workhours_from, $workhours_to,
-                                         $ground_type, $hour_price, $image, $video_link, $published, $published_here,
+                                         $ground_type, $hour_price, $image, $main_album, $video_link, $published, $published_here,
                                          $unpublished_here, $id)
     {
 		if ($published_here)
 		{
 			$sql = "UPDATE `stadiums` SET `title` = ?, `description` = ?, `address` = ?, `phone` = ?, `workhours_from` = ?, `workhours_to` = ?,
-            `ground_type` = ?, `hour_price` = ?, `image` = ?, `video_link` = ?, `published` = 1, `published_at` = NOW() WHERE `id` = ?";
+            `ground_type` = ?, `hour_price` = ?, `image` = ?, `main_album` = ?, `video_link` = ?, `published` = 1, `published_at` = NOW() WHERE `id` = ?";
 			$this->db->query($sql, array($title, $description, $address, $phone, $workhours_from, $workhours_to,
-                                         $ground_type, $hour_price, $image, $video_link, $id));
+                                         $ground_type, $hour_price, $image, $main_album, $video_link, $id));
 		}
 		elseif ($unpublished_here)
 		{
             $sql = "UPDATE `stadiums` SET `title` = ?, `description` = ?, `address` = ?, `phone` = ?, `workhours_from` = ?, `workhours_to` = ?,
-            `ground_type` = ?, `hour_price` = ?, `image` = ?, `video_link` = ?, `published` = 0, `published_at` = ? WHERE `id` = ?";
+            `ground_type` = ?, `hour_price` = ?, `image` = ?, `main_album` = ?, `video_link` = ?, `published` = 0, `published_at` = ? WHERE `id` = ?";
 			$this->db->query($sql, array($title, $description, $address, $phone, $workhours_from, $workhours_to,
-                                         $ground_type, $hour_price, $image, $video_link,NULL, $id));
+                                         $ground_type, $hour_price, $image, $main_album, $video_link,NULL, $id));
 		}
 		else
 		{
             $sql = "UPDATE `stadiums` SET `title` = ?, `description` = ?, `address` = ?, `phone` = ?, `workhours_from` = ?, `workhours_to` = ?,
-            `ground_type` = ?, `hour_price` = ?, `image` = ?, `video_link` = ? WHERE `id` = ?";
+            `ground_type` = ?, `hour_price` = ?, `image` = ?, `main_album` = ?, `video_link` = ? WHERE `id` = ?";
 			$this->db->query($sql, array($title, $description, $address, $phone, $workhours_from, $workhours_to,
-                                         $ground_type, $hour_price, $image, $video_link, $id));
+                                         $ground_type, $hour_price, $image, $main_album, $video_link, $id));
 		}
     }
 

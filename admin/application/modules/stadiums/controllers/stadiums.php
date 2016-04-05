@@ -85,24 +85,25 @@ class Stadiums extends CI_Controller {
     			$description = htmlspecialchars(trim($_POST["description"]));
     			$address = htmlspecialchars(trim($_POST["address"]));
     			$phone = htmlspecialchars(trim($_POST["phone"]));
-    			$workhours_from = htmlspecialchars(trim($_POST["workhours_from_time"] . ':' . $_POST["workhours_from"]));
-    			$workhours_to = htmlspecialchars(trim($_POST["workhours_to_time"] . ':' . $_POST["workhours_to"]));
-    			$ground_type = trim(htmlspecialchars($_POST["ground_type"]));
-    			$hour_price = trim(htmlspecialchars($_POST["hour_price"]));
-    			$image = trim(htmlspecialchars($_POST["main_img"]));
-                $video_link = trim(htmlspecialchars($_POST["main_video"]));
+    			$workhours_from = htmlspecialchars(trim($_POST["workhours_from"]));
+    			$workhours_to = htmlspecialchars(trim($_POST["workhours_to"]));
+    			$ground_type = htmlspecialchars(trim($_POST["ground_type"]));
+    			$hour_price = htmlspecialchars(trim($_POST["hour_price"]));
+    			$image = $_POST["main_img"];
+                $main_album = (empty($_POST["main_album"])) ? NULL : $_POST["main_album"];
+                $video_link = htmlspecialchars(trim($_POST["main_video"]));
                 $published = (isset($_POST["publish"])) ? '1' : '0';
 
                 if (empty($video_link))
                 {
-                    $video_link = '0';
+                    $video_link = NULL;
                 }
                 else
                 {
                     if (substr($_POST["video_link"], 0, 4) === "http")
-                    $link = str_replace(array("http://youtu.be/","http://dai.ly/"), '', trim(htmlspecialchars($_POST["video_link"])));
+                    $link = str_replace(array("http://youtu.be/","http://dai.ly/"), '', htmlspecialchars(trim($_POST["video_link"])));
                     if (substr($_POST["video_link"], 0, 5) === "https")
-                    $link = str_replace(array("https://youtu.be/","https://dai.ly/"), '', trim(htmlspecialchars($_POST["video_link"])));
+                    $link = str_replace(array("https://youtu.be/","https://dai.ly/"), '', htmlspecialchars(trim($_POST["video_link"])));
                 }
     			if (empty($image))
     			{
@@ -111,7 +112,7 @@ class Stadiums extends CI_Controller {
                 else
                 {
 					$this->stadiums_model->add_stadiums_item($user_id, $title, $description, $address, $phone, $workhours_from, $workhours_to,
-                                                             $ground_type, $hour_price, $image, $video_link, $published);
+                                                             $ground_type, $hour_price, $image, $main_album, $video_link, $published);
 					$this->session->set_flashdata("status", "تمت العملية بنجاح");
 					redirect(ROOT . "stadiums");
     			}
@@ -136,25 +137,26 @@ class Stadiums extends CI_Controller {
             $description = htmlspecialchars(trim($_POST["description"]));
             $address = htmlspecialchars(trim($_POST["address"]));
             $phone = htmlspecialchars(trim($_POST["phone"]));
-            $workhours_from = htmlspecialchars(trim($_POST["workhours_from_time"] . ':' . $_POST["workhours_from"]));
-            $workhours_to = htmlspecialchars(trim($_POST["workhours_to_time"] . ':' . $_POST["workhours_to"]));
-            $ground_type = trim(htmlspecialchars($_POST["ground_type"]));
-            $hour_price = trim(htmlspecialchars($_POST["hour_price"]));
-            $image = trim(htmlspecialchars($_POST["main_img"]));
-            $video_link = trim(htmlspecialchars($_POST["main_video"]));
+            $workhours_from = htmlspecialchars(trim($_POST["workhours_from"]));
+            $workhours_to = htmlspecialchars(trim($_POST["workhours_to"]));
+            $ground_type = htmlspecialchars(trim($_POST["ground_type"]));
+            $hour_price = htmlspecialchars(trim($_POST["hour_price"]));
+            $image = $_POST["main_img"];
+            $main_album = (empty($_POST["main_album"])) ? NULL : $_POST["main_album"];
+            $video_link = htmlspecialchars(trim($_POST["main_video"]));
             $published = (isset($_POST["publish"])) ? '1' : '0';
 			$published_here = ($stadiums_item["published"] == 0 && $published == 1) ? TRUE : FALSE;
 			$unpublished_here = ($stadiums_item["published"] == 1 && $published == 0) ? TRUE : FALSE;
             if (empty($video_link))
             {
-                $video_link = '0';
+                $video_link = NULL;
             }
             else
             {
                 if (substr($_POST["video_link"], 0, 4) === "http")
-                $link = str_replace(array("http://youtu.be/","http://dai.ly/"), '', trim(htmlspecialchars($_POST["video_link"])));
+                $link = str_replace(array("http://youtu.be/","http://dai.ly/"), '', htmlspecialchars(trim($_POST["video_link"])));
                 if (substr($_POST["video_link"], 0, 5) === "https")
-                $link = str_replace(array("https://youtu.be/","https://dai.ly/"), '', trim(htmlspecialchars($_POST["video_link"])));
+                $link = str_replace(array("https://youtu.be/","https://dai.ly/"), '', htmlspecialchars(trim($_POST["video_link"])));
             }
 
 			if (empty($title) OR empty($address))
@@ -168,7 +170,7 @@ class Stadiums extends CI_Controller {
 				if ($success)
 				{
 					$this->stadiums_model->update_stadiums_item($title, $description, $address, $phone, $workhours_from, $workhours_to,
-                                                                $ground_type, $hour_price, $image, $video_link, $published, $published_here,
+                                                                $ground_type, $hour_price, $image, $main_album, $video_link, $published, $published_here,
                                                                 $unpublished_here, $id);
 					$this->session->set_flashdata("status", "تمت العملية بنجاح");
 					redirect(ROOT . "stadiums");
