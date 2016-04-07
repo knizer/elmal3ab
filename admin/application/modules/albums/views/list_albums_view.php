@@ -35,8 +35,7 @@
 	<script>
 		$(".archive-img").click(function() {
 			var album = $(this).attr("id");
-			window.document.title = album;
-			window.close();
+			parent.get_album_value(album);
 		});
 	</script>
 </body>

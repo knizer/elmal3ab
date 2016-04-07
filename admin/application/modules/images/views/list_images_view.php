@@ -42,8 +42,7 @@
 		$(document).ready(function() {
 			$(".add-img-btn").click(function() {
 				var image = $(this).attr("id");
-				window.document.title = image;
-				window.close();
+                parent.get_image_value(image);
 			});
 		});
 	</script>

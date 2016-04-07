@@ -9385,3 +9385,9 @@ del img, del iframe {display: none;}
 }
 .inline-form2{width: 49%;float: right;margin-left: 2%}
 .inline-form2:nth-child(2){margin-left: 0px;}
+.list-iframe{
+    border: none;
+width: 100%;
+height: 700px;
+}
+.modal-new{width: 88%;}
