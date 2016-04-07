@@ -36,7 +36,7 @@
 									<tr>
 										<td><?= $video_item->id; ?></td>
 										<td>
-											<img class="img-mang-arti" src="<?= IMG_ARCHIVE . "647x471/" . $video_item->image; ?>" />
+											<img class="img-mang-arti" src="<?= SMALL_IMG . $video_item->image; ?>" />
 											<div class="des-sum-arti">
 												<p class="p-title-14"><?= $video_item->title; ?></p>
                                                 <div style="width: 650px; height: 20px; overflow: hidden; float: right; display: table;">

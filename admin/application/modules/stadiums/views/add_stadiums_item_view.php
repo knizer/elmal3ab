@@ -66,7 +66,7 @@
                             <button id="add_main_image_btn" data-toggle='modal' data-target='.add-image-modal'
                             class="btn btn-primary btn-font" type="button" style="margin-bottom: 10px; width: 150px;">إضافة صورة رئيسية
                             </button>
-                            <input type="hidden" name="main_img" id="main_img" value="<?php if (isset($_POST['main_img'])) echo $_POST['main_img']; ?>"required />
+                            <input type="hidden" name="main_img" id="main_img" value="<?php if (isset($_POST['main_img'])) echo $_POST['main_img']; ?>" required />
                             <div id="img-div">
                                 <?php if (isset($_POST["main_img"])): ?>
                                     <img src="<?= SMALL_IMG . $_POST['main_img']; ?>" width="220" height="110" />
@@ -131,6 +131,16 @@
                                 <iframe id="modal-iframe" src='' class='list-iframe'></iframe>
                                 <!-- Custom Lists (Images, Albums, and Videos) -->
                                 <?php $this->load->view('custom-lists');?>
+                                <script>
+                                    $(document).ready(function () {
+                                        //bootstrape timepicker
+                                        $(function () {
+                                            $('#datetimepicker3').datetimepicker({ format: 'LT' });
+                                            $('#datetimepicker4').datetimepicker({ format: 'LT' });
+                                        });
+                                        //end bootstrape timepicker
+                                    });
+                                </script>
                                 <!-- End Custom Lists (Images, Albums, and Videos) -->
                             </div>
 						</div>

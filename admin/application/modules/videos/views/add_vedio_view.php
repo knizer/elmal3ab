@@ -53,11 +53,13 @@
                         </div>
                         <div class="col-md-5 widget-area" style="float: right;">
                             <div class="col-md-2" style="float: right;">
-                                <button id="add_main_image_btn" class="btn btn-primary btn-font" type="button" style="margin-bottom: 10px;">صورة الفيديو</button>
-                                <input type="hidden" name="video_img" id="video_img" value="<?php if (isset($_POST['video_img'])) echo $_POST['video_img']; ?>" />
+                                <button id="add_main_image_btn" data-toggle='modal' data-target='.add-image-modal'
+                                class="btn btn-primary btn-font" type="button" style="margin-bottom: 10px; width: 150px;">إضافة صورة رئيسية
+                                </button>
+                                <input type="hidden" name="video_img" id="main_img" value="<?php if (isset($_POST['video_img'])) echo $_POST['video_img']; ?>" required />
                                 <div id="img-div">
-                                    <?php if (isset($_POST["video_img"])): ?>
-                                        <img src="<?= IMG_ARCHIVE . '647x471/' . $_POST['video_img']; ?>" width="220" height="110" />
+                                    <?php if (isset($_POST["main_img"])): ?>
+                                        <img src="<?= SMALL_IMG . $_POST['main_img']; ?>" width="220" height="110" />
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -84,95 +86,19 @@
                     </div>
                 </div>
             </form>
-            <?php //$this->load->view("slide_panel"); ?>
-        </div><!-- Page Container -->
-        <div class="modal fade bs-example-modal-lg" id="myModal_related" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;   margin-right: -45%;   top: 1%;">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content" style="width: 150%;  left: -16%;">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-envelope" style="  margin: 11px;  font-size: 26px;"></i>أختيار الأخبار </h4><div class="add_list"></div>
-                    </div>
-                    <div class="modal-body">
-                        <div class="related_articles"></div>
-                    </div>
-                    <div class="modal-footer">
-
-                        <button type="button" class="btn btn-primary btn-font" data-dismiss="modal">
-                            حفظ التغييرات
-                        </button>
-                    </div>
+        </div>
+        <!-- Empty modal -->
+        <div id="list-modal" class="modal fade add-image-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg custom-modal-list-images modal-new">
+                <div class="modal-content" id="list-modal-content">
+                    <iframe id="modal-iframe" src='' class='list-iframe'></iframe>
+                    <!-- Custom Lists (Images, Albums, and Videos) -->
+                    <?php $this->load->view('custom-lists');?>
+                    <!-- End Custom Lists (Images, Albums, and Videos) -->
                 </div>
             </div>
         </div>
-
-        <div class="modal fade bs-example-modal-lg" id="related_videos_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;   margin-right: -45%;   top: 1%;">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content" style="width: 150%;  left: -16%;">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-envelope" style="  margin: 11px;  font-size: 26px;"></i> إضافة فيديوهات متعلقة</h4><div class="add_list"></div>
-                    </div>
-
-                    <div class="modal-body">
-                        <div class="related_videos_content"></div>
-                    </div>
-                    <div class="modal-footer" style="border-top:none; ">
-                        <button type="button" class="btn btn-default btn-font" data-dismiss="modal">
-                            إغلاق
-                        </button>
-                        <button type="button" class="btn btn-primary btn-font" id="save_rvideos_btn">
-                            حفظ التغييرات
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade bs-example-modal-lg" id="add_coverage_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;   margin-right: -45%;   top: 1%;">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content" style="width: 150%;  left: -16%;">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-envelope" style="  margin: 11px;  font-size: 26px;"></i> إضافة تغطية جديدة </h4><div class="add_list"></div>
-                    </div>
-
-                    <div class="modal-body">
-
-                        <div class="col-md-12">
-                            <div class="inline-form sp-height">
-                                <label class="c-label">إسم التغطية</label>
-                                <input type="text" type="text" name="name" id="coverage_name" required autofocus />
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="inline-form">
-                                <label class="c-label"> النوع</label>
-                                <select id="coverage_type">
-                                    <option value="1">تغطية خاصة</option>
-                                    <option value="2">ملف خاص</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-122" style="margin-top: 10px;">
-
-                            <input type="checkbox" name="active" id="coverage_active_flag" value="1"  />
-                            نشط
-
-                        </div>
-
-                        <br><br>
-                    </div>
-                    <div class="modal-footer" style="border-top:none; ">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">إغلاق</button>
-                        <button type="button" class="btn btn-primary" id="save_coverage_btn"> حفظ التغييرات</button>
-                    </div>   </div>  </div></div>
+        <!-- End Empty modal -->
         <?php $this->load->view("footer"); ?>
         <script>
 
@@ -215,34 +141,34 @@
         </script>
         <script>
             $(document).ready(function () {
-                this_window_title = window.document.title;
+                // this_window_title = window.document.title;
+                // // Choosing main image code
+                // $("#add_main_image_btn").click(function () {
+                //     images_window = window.open("<?= ROOT; ?>images/list_images", "_blank", "titlebar=no, toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, top=0, left=0, width=1050, height=" + window.innerHeight);
+                //     var timer = setInterval(check_window_close, 500);
+                //
+                //     function check_window_close() {
+                //         image = images_window.document.title;
+                //         if (images_window.closed)
+                //         {
+                //             // Only do any action if he chooses an image from the opened window and doesn't just close it again without choosing
+                //             if (image != this_window_title)
+                //             {
+                //                 // Stop the timer
+                //                 clearInterval(timer);
+                //
+                //                 var result = image.split('&');
+                //
+                //                 // Set the hidden input value to the video name
+                //                 $("#video_img").val(result[1]);
+                //                 var html = "<img src='<?= IMG_ARCHIVE; ?>647x471/" + result[1] + "' width='220' height='110'>";
+                //
+                //                 $('#img-div').html(html);
+                //             }
+                //         }
+                //     }
+                // });
 
-                // Choosing main image code
-                $("#add_main_image_btn").click(function () {
-                    images_window = window.open("<?= ROOT; ?>images/list_images", "_blank", "titlebar=no, toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, top=0, left=0, width=1050, height=" + window.innerHeight);
-                    var timer = setInterval(check_window_close, 500);
-
-                    function check_window_close() {
-                        image = images_window.document.title;
-                        if (images_window.closed)
-                        {
-                            // Only do any action if he chooses an image from the opened window and doesn't just close it again without choosing
-                            if (image != this_window_title)
-                            {
-                                // Stop the timer
-                                clearInterval(timer);
-
-                                var result = image.split('&');
-
-                                // Set the hidden input value to the video name
-                                $("#video_img").val(result[1]);
-                                var html = "<img src='<?= IMG_ARCHIVE; ?>647x471/" + result[1] + "' width='220' height='110'>";
-
-                                $('#img-div').html(html);
-                            }
-                        }
-                    }
-                });
                 // Ensure user chooses image
                 $("#insert-form").submit(function (e) {
                     if ( ! $("#video_img").val())
@@ -284,25 +210,6 @@
                 });
             });
 
-//            $("#related_videos_btn").click(function () {
-//                if ($('#tags').val() != '')
-//                {
-//                    $('.related_articles').html("");
-//                    $('#related_videos_modal').modal('toggle');
-//
-//                    $.post('../related_articles/relatedVideos', {tags: $('#tags').val()}, function (data) {
-//                        $('.related_videos_content').html(data);
-//                        if ($('#related_videos_hidcont').html() != '')
-//                        {
-//                            $('#destinationFields').html($('#related_videos_hidcont').html());
-//                        }
-//                    });
-//                }
-//                else
-//                {
-//                    alert("من فضلك قم بكتابة الكلمات الدليلية أولاً!");
-//                }
-//            });
 
             $("#save_rvideos_btn").click(function () {
                 $.post('../related_articles/checkValidations', {slected: $('#destinationFields').html()}, function (data) {
