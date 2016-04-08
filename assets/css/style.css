@@ -1539,3 +1539,28 @@ height: 27px;
 }
 
 .nav-a-active{color: #ECDFB1;}
+.load-more-btn{
+    width: 100%;
+    font-size: 18px !important;
+    background-color: #276800 !important;
+    border: 0px !important;
+}
+.load-more-btn:active{
+    background-color: #276800 !important;
+    border: 0px !important;*/
+    background-image: none;
+    outline: 0;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+
+.one_album_div{
+    width: 24.6%;
+    overflow: hidden;
+    float: right;
+    margin-left: 0.5%;
+    margin-bottom: 0.5%;
+}
+.one_album_div:nth-child(4n+4){
+    margin-left: 0px;
+}

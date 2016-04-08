@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="<?= CSS; ?>font-awesome.min.css">
     <link rel="stylesheet" href="<?= CSS; ?>sweetalert.css">
     <script src="<?= JS; ?>jquery.min.js"></script>
+    <!-- fancy box -->
+    <link rel="stylesheet" href="<?= CSS; ?>jquery.fancybox.css">
+    <script src="<?= JS; ?>jquery.fancybox.js"></script>
+    <!-- end fancy box -->
     <script src="<?= JS; ?>bootstrap.min.js"></script>
     <script src="<?= JS; ?>sweetalert.min.js"></script>
 </head>

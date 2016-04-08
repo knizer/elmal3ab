@@ -9,7 +9,7 @@
                 <a id="logo" href="<?= ROOT; ?>" class="navbar-brand">
                     <span class="fa fa-rocket"></span>
                     <span class="logo-text" style="display: none">LOGO</span>
-                    <span class="logo-text-icon"><img src="http://www.aswatmasriya.com/admin/assets/images/logo_admin.png" alt="LOGO" class="img-responsive num-img-glogo"></span>
+                    <span class="logo-text-icon"><img src="" alt="LOGO" class="img-responsive num-img-glogo"></span>
                 </a>
             </div>
             <div class="topbar-main">

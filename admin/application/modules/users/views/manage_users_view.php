@@ -47,7 +47,7 @@
 										</a>
 									</td>
 									<td>
-										<a href="<?= site_url(); ?>users/edit/<?= $user['id']; ?>">
+										<a href="<?= ROOT; ?>users/edit/<?= $user['id']; ?>">
 											<button class="btn btn-warning btn-font tables-full-width-btn" type="button">تعديل</button>
 										</a>
 									</td>

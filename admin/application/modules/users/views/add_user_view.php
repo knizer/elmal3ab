@@ -12,11 +12,11 @@
 				<div class="widget-area">
                     <div class="wizard-form-h">
 						<form action="" method="post" enctype="multipart/form-data">
-							<?php if (isset($status)): ?> 
+							<?php if (isset($status)): ?>
 								<div class="col-md-122" style="margin-top: -20px;">
-									<?= $status; ?> 
+									<?= $status; ?>
 								</div>
-							<?php endif; ?> 
+							<?php endif; ?>
 							<div class="col-md-62">
 								<div class="inline-form">
 									<label class="c-label">الإسم *</label>
@@ -28,15 +28,15 @@
 									<label class="c-label">المجموعة *</label>
 									<select name="group_id" required>
 										<option value=""></option>
-										<?php if (isset($groups)): ?> 
-										<?php foreach ($groups as $group): ?> 
-											<?php if (isset($_POST["group_id"]) && $group["id"] == $_POST["group_id"]): ?> 
+										<?php if (isset($groups)): ?>
+										<?php foreach ($groups as $group): ?>
+											<?php if (isset($_POST["group_id"]) && $group["id"] == $_POST["group_id"]): ?>
 												<option value="<?= $group['id']; ?>" selected><?= $group['name']; ?></option>
-											<?php else: ?> 
+											<?php else: ?>
 												<option value="<?= $group['id']; ?>"><?= $group['name']; ?></option>
-											<?php endif; ?> 
-										<?php endforeach; ?> 
-										<?php endif; ?> 
+											<?php endif; ?>
+										<?php endforeach; ?>
+										<?php endif; ?>
 									</select>
 								</div>
 							</div>
@@ -99,8 +99,8 @@
 			</div>
 		</div>
 	</div>
-	<?php //$this->load->view("slide_panel"); ?> 
+	<?php //$this->load->view("slide_panel"); ?>
 </div><!-- Page Container -->
-<?php $this->load->view("footer"); ?> 
+<?php $this->load->view("footer"); ?>
 </body>
 </html>
