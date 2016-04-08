@@ -3,13 +3,12 @@
     label.star:hover {transform: none !important;}
 </style>
 <script>
-    function rate_event(doc_id, rate)
-    {
-<?php if (!$this->session->userdata('logged_in')): ?>
-            swal('برجاء تسجيل الدخول أولا.. ثم الدخول على صفحة الملعب المراد التصويت له..!');
-<?php elseif ($this->session->userdata('logged_in')): ?>
-swal('برجاء الدخول لصفحة الملعب ..!');
-<?php endif; ?>
+    function rate_event(doc_id, rate){
+        <?php if (!$this->session->userdata('logged_in')): ?>
+                    swal('برجاء تسجيل الدخول أولا.. ثم الدخول على صفحة الملعب المراد التصويت له..!');
+        <?php elseif ($this->session->userdata('logged_in')): ?>
+        swal('برجاء الدخول لصفحة الملعب ..!');
+        <?php endif; ?>
     }
 </script>
 <section class="stadium">
@@ -109,7 +108,7 @@ swal('برجاء الدخول لصفحة الملعب ..!');
                 <?php if ( ! empty($latest_stadiums)): ?>
                     <?php foreach ($latest_stadiums as $latest_stadium): ?>
                         <div class="circle_new" style="background: transparent url('<?= LARGE_IMG . $latest_stadium['image']; ?>') no-repeat center center;">
-                            <a href="<?= SITE_URL . "stadium/details/" . $latest_stadium['id']; ?>" class="circle_news_btn"><?= $latest_stadium['title']; ?></a>
+                            <a href="<?= SITE_URL . "stadiums/details/" . $latest_stadium['id']; ?>" class="circle_news_btn"><?= $latest_stadium['title']; ?></a>
                         </div>
                     <?php endforeach; ?>
                 <?php endif;?>
@@ -130,7 +129,7 @@ swal('برجاء الدخول لصفحة الملعب ..!');
                 <?php foreach ($stadiums_high_rate as $stadium_high_rate): ?>
                     <div class="one-stad">
                         <div class="best-stad">
-                            <a href="<?= SITE_URL . "stadium/details/" . $stadium_high_rate['id']; ?>"><img class="best-stad-img" src="<?= MID_IMG . $stadium_high_rate['image']; ?>" /></a>
+                            <a href="<?= SITE_URL . "stadiums/details/" . $stadium_high_rate['id']; ?>"><img class="best-stad-img" src="<?= MID_IMG . $stadium_high_rate['image']; ?>" /></a>
                         </div>
                         <div class="stars">
                             <?php
@@ -250,7 +249,7 @@ swal('برجاء الدخول لصفحة الملعب ..!');
             <?php if ( ! empty($featured_albums)): ?>
                 <?php foreach ($featured_albums as $featured_album): ?>
                     <div class="one-album">
-                        <a href="<?= SITE_URL . "album/details/" .$featured_album['id']; ?>" class="one-album-btn">
+                        <a href="<?= SITE_URL . "albums/details/" .$featured_album['id']; ?>" class="one-album-btn">
                             <span><?= $featured_album['title']; ?></span>
                             <span class="one-album-more">المزيد من الصور</span>
                         </a>
