@@ -1,4 +1,4 @@
-<?php $this->load->view("header"); ?> 
+<?php $this->load->view("header"); ?>
 
 <div class="container">
 	<div class="col-md-12">
@@ -99,8 +99,7 @@
 			</div>
 		</div>
 	</div>
-	<?php //$this->load->view("slide_panel"); ?>
-</div><!-- Page Container -->
+</div>
 <?php $this->load->view("footer"); ?>
 </body>
 </html>
