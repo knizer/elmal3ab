@@ -228,11 +228,8 @@ class Users extends MX_Controller {
 				}
 				else
 				{
-                    $group_id = $_POST['group_id'];
-
                     if ($group_id != $user['group_id'])
                     {
-
                         $this->users_model->update_user_group_and_permissions($group_id, $id);
                     }
 

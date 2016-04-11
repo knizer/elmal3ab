@@ -71,20 +71,23 @@ class Users_model extends CI_Model {
         $query = $this->db->query($sql, array($stadiums, $images_albums, $videos, $users_groups, $user_id));
     }
 
+    private function update_user_group($group_id, $user_id)
+    {
+        $sql = "UPDATE `users_permissions` SET `group_id` = ? WHERE `user_id` = ?";
+        $query = $this->db->query($sql, array($group_id, $user_id));
+    }
+
     public function update_user_group_and_permissions($group_id, $user_id)
     {
+        $this->update_user_group($group_id, $user_id);
+
         // Get user group's permissions and copy them for user
         $group = $this->common_model->get_subject_with_token("groups", "id", $group_id);
         if ($group)
         {
             extract($group);
-
             $this->update_user_permissions($stadiums, $images_albums, $videos, $users_groups, $user_id);
         }
-        $sql = "UPDATE `users_permissions` SET `group_id` = ?
-        WHERE `user_id` = ?";
-
-        $query = $this->db->query($sql, array($group_id, $user_id));
     }
 
 
